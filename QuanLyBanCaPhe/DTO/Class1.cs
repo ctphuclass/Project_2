@@ -6,9 +6,7 @@ using System.Threading.Tasks;
 
 namespace DTO
 {
-    public class cbxAdd
+    public class Class1
     {
-        public string Ma_Ban { get; set; }
-        public string Ten_Ban { get; set; }
     }
 }
