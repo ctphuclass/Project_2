@@ -45,16 +45,70 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="form_Ban.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="form_Ban.designer.cs">
+      <DependentUpon>form_Ban.cs</DependentUpon>
+    </Compile>
+    <Compile Include="form_DoanhThu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="form_DoanhThu.designer.cs">
+      <DependentUpon>form_DoanhThu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="form_Menu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="form_Menu.designer.cs">
+      <DependentUpon>form_Menu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="form_NhanVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="form_NhanVien.designer.cs">
+      <DependentUpon>form_NhanVien.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmLogin.Designer.cs">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="from_DieuHuong.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="from_DieuHuong.designer.cs">
+      <DependentUpon>from_DieuHuong.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main_Form_Layer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main_Form_Layer.designer.cs">
+      <DependentUpon>Main_Form_Layer.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="form_Ban.resx">
+      <DependentUpon>form_Ban.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="form_DoanhThu.resx">
+      <DependentUpon>form_DoanhThu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="form_Menu.resx">
+      <DependentUpon>form_Menu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="form_NhanVien.resx">
+      <DependentUpon>form_NhanVien.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="from_DieuHuong.resx">
+      <DependentUpon>from_DieuHuong.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main_Form_Layer.resx">
+      <DependentUpon>Main_Form_Layer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -80,6 +134,20 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="abcd.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BUS\BUS.csproj">
+      <Project>{a3a334a7-cb53-47ca-ac8f-30464ddc3257}</Project>
+      <Name>BUS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DAO\DAO.csproj">
+      <Project>{918dbc45-df28-4626-b92d-fcb080f30e18}</Project>
+      <Name>DAO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DTO\DTO.csproj">
+      <Project>{8b6fdf8d-c41c-42af-a98e-8c20678ddcc4}</Project>
+      <Name>DTO</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

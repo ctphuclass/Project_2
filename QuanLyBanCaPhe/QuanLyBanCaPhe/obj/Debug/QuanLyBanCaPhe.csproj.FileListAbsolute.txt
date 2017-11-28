@@ -17,3 +17,15 @@ C:\Users\phutc\Source\Repos\Project_2\QuanLyBanCaPhe\QuanLyBanCaPhe\obj\Debug\Qu
 C:\Users\phutc\Source\Repos\Project_2\QuanLyBanCaPhe\QuanLyBanCaPhe\obj\Debug\QuanLyBanCaPhe.csproj.CoreCompileInputs.cache
 C:\Users\phutc\Source\Repos\Project_2\QuanLyBanCaPhe\QuanLyBanCaPhe\obj\Debug\QuanLyBanCaPhe.exe
 C:\Users\phutc\Source\Repos\Project_2\QuanLyBanCaPhe\QuanLyBanCaPhe\obj\Debug\QuanLyBanCaPhe.pdb
+C:\Users\Nguyen Thanh Dat\Source\Repos\Project_2\QuanLyBanCaPhe\QuanLyBanCaPhe\bin\Debug\BUS.dll
+C:\Users\Nguyen Thanh Dat\Source\Repos\Project_2\QuanLyBanCaPhe\QuanLyBanCaPhe\bin\Debug\DAO.dll
+C:\Users\Nguyen Thanh Dat\Source\Repos\Project_2\QuanLyBanCaPhe\QuanLyBanCaPhe\bin\Debug\DTO.dll
+C:\Users\Nguyen Thanh Dat\Source\Repos\Project_2\QuanLyBanCaPhe\QuanLyBanCaPhe\bin\Debug\BUS.pdb
+C:\Users\Nguyen Thanh Dat\Source\Repos\Project_2\QuanLyBanCaPhe\QuanLyBanCaPhe\bin\Debug\DAO.pdb
+C:\Users\Nguyen Thanh Dat\Source\Repos\Project_2\QuanLyBanCaPhe\QuanLyBanCaPhe\bin\Debug\DTO.pdb
+C:\Users\Nguyen Thanh Dat\Source\Repos\Project_2\QuanLyBanCaPhe\QuanLyBanCaPhe\obj\Debug\QuanLyBanCaPhe.form_DoanhThu.resources
+C:\Users\Nguyen Thanh Dat\Source\Repos\Project_2\QuanLyBanCaPhe\QuanLyBanCaPhe\obj\Debug\QuanLyBanCaPhe.form_Ban.resources
+C:\Users\Nguyen Thanh Dat\Source\Repos\Project_2\QuanLyBanCaPhe\QuanLyBanCaPhe\obj\Debug\QuanLyBanCaPhe.form_Menu.resources
+C:\Users\Nguyen Thanh Dat\Source\Repos\Project_2\QuanLyBanCaPhe\QuanLyBanCaPhe\obj\Debug\QuanLyBanCaPhe.form_NhanVien.resources
+C:\Users\Nguyen Thanh Dat\Source\Repos\Project_2\QuanLyBanCaPhe\QuanLyBanCaPhe\obj\Debug\QuanLyBanCaPhe.from_DieuHuong.resources
+C:\Users\Nguyen Thanh Dat\Source\Repos\Project_2\QuanLyBanCaPhe\QuanLyBanCaPhe\obj\Debug\QuanLyBanCaPhe.Main_Form_Layer.resources

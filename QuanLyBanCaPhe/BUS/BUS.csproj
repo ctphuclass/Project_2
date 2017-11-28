@@ -51,6 +51,16 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ShowHoaDon_BUS.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DAO\DAO.csproj">
+      <Project>{918dbc45-df28-4626-b92d-fcb080f30e18}</Project>
+      <Name>DAO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DTO\DTO.csproj">
+      <Project>{8b6fdf8d-c41c-42af-a98e-8c20678ddcc4}</Project>
+      <Name>DTO</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
