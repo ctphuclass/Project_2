@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuanLyBanCaPhe", "QuanLyBan
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DTO", "DTO\DTO.csproj", "{8B6FDF8D-C41C-42AF-A98E-8C20678DDCC4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAO", "DAO\DAO.csproj", "{918DBC45-DF28-4626-B92D-FCB080F30E18}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BUS", "BUS\BUS.csproj", "{A3A334A7-CB53-47CA-AC8F-30464DDC3257}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{8B6FDF8D-C41C-42AF-A98E-8C20678DDCC4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8B6FDF8D-C41C-42AF-A98E-8C20678DDCC4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8B6FDF8D-C41C-42AF-A98E-8C20678DDCC4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{918DBC45-DF28-4626-B92D-FCB080F30E18}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{918DBC45-DF28-4626-B92D-FCB080F30E18}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{918DBC45-DF28-4626-B92D-FCB080F30E18}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{918DBC45-DF28-4626-B92D-FCB080F30E18}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A3A334A7-CB53-47CA-AC8F-30464DDC3257}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3A334A7-CB53-47CA-AC8F-30464DDC3257}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A3A334A7-CB53-47CA-AC8F-30464DDC3257}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A3A334A7-CB53-47CA-AC8F-30464DDC3257}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
