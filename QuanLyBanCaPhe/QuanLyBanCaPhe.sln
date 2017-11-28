@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAO", "DAO\DAO.csproj", "{9
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BUS", "BUS\BUS.csproj", "{A3A334A7-CB53-47CA-AC8F-30464DDC3257}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QL_CAFE_SOLUTION", "..\..\..\..\Documents\Visual Studio 2015\Projects\QL_CAFE_SOLUTION\QL_CAFE_SOLUTION\QL_CAFE_SOLUTION.csproj", "{72CF0807-F678-4383-B9C8-7983F59139F1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{A3A334A7-CB53-47CA-AC8F-30464DDC3257}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A3A334A7-CB53-47CA-AC8F-30464DDC3257}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A3A334A7-CB53-47CA-AC8F-30464DDC3257}.Release|Any CPU.Build.0 = Release|Any CPU
+		{72CF0807-F678-4383-B9C8-7983F59139F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{72CF0807-F678-4383-B9C8-7983F59139F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{72CF0807-F678-4383-B9C8-7983F59139F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{72CF0807-F678-4383-B9C8-7983F59139F1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
