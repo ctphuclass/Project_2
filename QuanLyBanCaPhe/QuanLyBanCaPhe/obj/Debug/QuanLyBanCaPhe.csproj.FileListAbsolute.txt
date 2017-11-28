@@ -7,3 +7,13 @@ C:\Users\Nguyen Thanh Dat\Source\Repos\Project_2\QuanLyBanCaPhe\QuanLyBanCaPhe\o
 C:\Users\Nguyen Thanh Dat\Source\Repos\Project_2\QuanLyBanCaPhe\QuanLyBanCaPhe\obj\Debug\QuanLyBanCaPhe.exe
 C:\Users\Nguyen Thanh Dat\Source\Repos\Project_2\QuanLyBanCaPhe\QuanLyBanCaPhe\obj\Debug\QuanLyBanCaPhe.pdb
 C:\Users\Nguyen Thanh Dat\Source\Repos\Project_2\QuanLyBanCaPhe\QuanLyBanCaPhe\obj\Debug\QuanLyBanCaPhe.frmLogin.resources
+C:\Users\phutc\Source\Repos\Project_2\QuanLyBanCaPhe\QuanLyBanCaPhe\bin\Debug\QuanLyBanCaPhe.exe.config
+C:\Users\phutc\Source\Repos\Project_2\QuanLyBanCaPhe\QuanLyBanCaPhe\bin\Debug\QuanLyBanCaPhe.exe
+C:\Users\phutc\Source\Repos\Project_2\QuanLyBanCaPhe\QuanLyBanCaPhe\bin\Debug\QuanLyBanCaPhe.pdb
+C:\Users\phutc\Source\Repos\Project_2\QuanLyBanCaPhe\QuanLyBanCaPhe\obj\Debug\QuanLyBanCaPhe.csprojResolveAssemblyReference.cache
+C:\Users\phutc\Source\Repos\Project_2\QuanLyBanCaPhe\QuanLyBanCaPhe\obj\Debug\QuanLyBanCaPhe.frmLogin.resources
+C:\Users\phutc\Source\Repos\Project_2\QuanLyBanCaPhe\QuanLyBanCaPhe\obj\Debug\QuanLyBanCaPhe.Properties.Resources.resources
+C:\Users\phutc\Source\Repos\Project_2\QuanLyBanCaPhe\QuanLyBanCaPhe\obj\Debug\QuanLyBanCaPhe.csproj.GenerateResource.Cache
+C:\Users\phutc\Source\Repos\Project_2\QuanLyBanCaPhe\QuanLyBanCaPhe\obj\Debug\QuanLyBanCaPhe.csproj.CoreCompileInputs.cache
+C:\Users\phutc\Source\Repos\Project_2\QuanLyBanCaPhe\QuanLyBanCaPhe\obj\Debug\QuanLyBanCaPhe.exe
+C:\Users\phutc\Source\Repos\Project_2\QuanLyBanCaPhe\QuanLyBanCaPhe\obj\Debug\QuanLyBanCaPhe.pdb
