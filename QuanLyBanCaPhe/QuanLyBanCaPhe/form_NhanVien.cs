@@ -204,6 +204,8 @@ namespace QuanLyBanCaPhe
                     return;
                 }
             }
+            else
+                tbxMaNV.Enabled = false;
         }
     }
 }

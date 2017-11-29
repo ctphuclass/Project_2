@@ -50,6 +50,7 @@
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
+            this.btnSearch = new System.Windows.Forms.Button();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
@@ -59,7 +60,7 @@
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btnSearch = new System.Windows.Forms.Button();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -93,6 +94,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.checkBox1);
             this.groupBox1.Controls.Add(this.tbxDG);
             this.groupBox1.Controls.Add(this.tbxDVT);
             this.groupBox1.Controls.Add(this.tbxLoaiSP);
@@ -141,6 +143,7 @@
             // 
             // tbxMaSP
             // 
+            this.tbxMaSP.Enabled = false;
             this.tbxMaSP.Location = new System.Drawing.Point(163, 33);
             this.tbxMaSP.Name = "tbxMaSP";
             this.tbxMaSP.Size = new System.Drawing.Size(252, 20);
@@ -300,12 +303,21 @@
             this.dataGridView3.TabIndex = 0;
             this.dataGridView3.Click += new System.EventHandler(this.dataGridView3_Click);
             // 
+            // btnSearch
+            // 
+            this.btnSearch.Location = new System.Drawing.Point(466, 321);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(89, 35);
+            this.btnSearch.TabIndex = 5;
+            this.btnSearch.Text = "OK";
+            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            // 
             // pictureBox4
             // 
             this.pictureBox4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.pictureBox4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            //this.pictureBox4.Image = global::QL_CAFE_SOLUTION.Properties.Resources.tải_xuống;
-            //this.pictureBox4.InitialImage = global::QL_CAFE_SOLUTION.Properties.Resources.Load_icon;
+            this.pictureBox4.Image = global::QuanLyBanCaPhe.Properties.Resources.load_icon;
             this.pictureBox4.Location = new System.Drawing.Point(587, 59);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Padding = new System.Windows.Forms.Padding(10);
@@ -318,7 +330,6 @@
             // pictureBox5
             // 
             this.pictureBox5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            //this.pictureBox5.Image = global::QL_CAFE_SOLUTION.Properties.Resources.exit;
             this.pictureBox5.Location = new System.Drawing.Point(587, 191);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Padding = new System.Windows.Forms.Padding(10);
@@ -331,7 +342,6 @@
             // pictureBox7
             // 
             this.pictureBox7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            //this.pictureBox7.Image = global::QL_CAFE_SOLUTION.Properties.Resources.exit;
             this.pictureBox7.Location = new System.Drawing.Point(587, 192);
             this.pictureBox7.Name = "pictureBox7";
             this.pictureBox7.Padding = new System.Windows.Forms.Padding(10);
@@ -345,9 +355,8 @@
             // 
             this.pictureLoad_2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.pictureLoad_2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            //this.pictureLoad_2.Image = global::QL_CAFE_SOLUTION.Properties.Resources.tải_xuống;
-            //this.pictureLoad_2.InitialImage = global::QL_CAFE_SOLUTION.Properties.Resources.Load_icon;
-            this.pictureLoad_2.Location = new System.Drawing.Point(587, 56);
+            this.pictureLoad_2.Image = global::QuanLyBanCaPhe.Properties.Resources.load_icon;
+            this.pictureLoad_2.Location = new System.Drawing.Point(587, 63);
             this.pictureLoad_2.Name = "pictureLoad_2";
             this.pictureLoad_2.Padding = new System.Windows.Forms.Padding(10);
             this.pictureLoad_2.Size = new System.Drawing.Size(104, 87);
@@ -359,7 +368,6 @@
             // pictureBox8
             // 
             this.pictureBox8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            //this.pictureBox8.Image = global::QL_CAFE_SOLUTION.Properties.Resources.exit;
             this.pictureBox8.Location = new System.Drawing.Point(587, 197);
             this.pictureBox8.Name = "pictureBox8";
             this.pictureBox8.Padding = new System.Windows.Forms.Padding(10);
@@ -373,8 +381,7 @@
             // 
             this.pictureBoxLoad3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.pictureBoxLoad3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            //this.pictureBoxLoad3.Image = global::QL_CAFE_SOLUTION.Properties.Resources.tải_xuống;
-            //this.pictureBoxLoad3.InitialImage = global::QL_CAFE_SOLUTION.Properties.Resources.Load_icon;
+            this.pictureBoxLoad3.Image = global::QuanLyBanCaPhe.Properties.Resources.load_icon;
             this.pictureBoxLoad3.Location = new System.Drawing.Point(587, 64);
             this.pictureBoxLoad3.Name = "pictureBoxLoad3";
             this.pictureBoxLoad3.Padding = new System.Windows.Forms.Padding(10);
@@ -387,7 +394,7 @@
             // pictureBox3
             // 
             this.pictureBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            //this.pictureBox3.Image = global::QL_CAFE_SOLUTION.Properties.Resources.delete_icon;
+            this.pictureBox3.Image = global::QuanLyBanCaPhe.Properties.Resources.delete_icon;
             this.pictureBox3.Location = new System.Drawing.Point(594, 250);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(104, 79);
@@ -399,7 +406,7 @@
             // pictureBox2
             // 
             this.pictureBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            //this.pictureBox2.Image = global::QL_CAFE_SOLUTION.Properties.Resources.Update_icon;
+            this.pictureBox2.Image = global::QuanLyBanCaPhe.Properties.Resources.update_icon;
             this.pictureBox2.Location = new System.Drawing.Point(594, 166);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(104, 78);
@@ -412,7 +419,7 @@
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            //this.pictureBox1.Image = global::QL_CAFE_SOLUTION.Properties.Resources.reload_icon;
+            this.pictureBox1.Image = global::QuanLyBanCaPhe.Properties.Resources.add_iconn;
             this.pictureBox1.Location = new System.Drawing.Point(594, 81);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Padding = new System.Windows.Forms.Padding(10);
@@ -422,21 +429,21 @@
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
-            // btnSearch
+            // checkBox1
             // 
-            this.btnSearch.Location = new System.Drawing.Point(466, 321);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(89, 35);
-            this.btnSearch.TabIndex = 5;
-            this.btnSearch.Text = "OK";
-            this.btnSearch.UseVisualStyleBackColor = true;
-            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(421, 36);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(15, 14);
+            this.checkBox1.TabIndex = 2;
+            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
-            // Form1
+            // form_Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(715, 697);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.tabControl1);
@@ -447,7 +454,7 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label1);
-            this.Name = "Form1";
+            this.Name = "form_Menu";
             this.Text = "Form1";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -506,6 +513,7 @@
         private System.Windows.Forms.PictureBox pictureBox8;
         private System.Windows.Forms.PictureBox pictureBoxLoad3;
         private System.Windows.Forms.Button btnSearch;
+        private System.Windows.Forms.CheckBox checkBox1;
     }
 }
 
