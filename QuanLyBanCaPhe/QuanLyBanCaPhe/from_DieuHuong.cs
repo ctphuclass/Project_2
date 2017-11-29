@@ -40,5 +40,11 @@ namespace QuanLyBanCaPhe
             form_DoanhThu DT = new form_DoanhThu();
             DT.ShowDialog();
         }
+
+        private void quảnLíBànToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            form_Ban Ban = new form_Ban();
+            Ban.ShowDialog();
+        }
     }
 }

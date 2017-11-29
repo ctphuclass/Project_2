@@ -79,6 +79,7 @@
             this.quảnLíBànToolStripMenuItem.Name = "quảnLíBànToolStripMenuItem";
             this.quảnLíBànToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
             this.quảnLíBànToolStripMenuItem.Text = "Quản lí Bàn";
+            this.quảnLíBànToolStripMenuItem.Click += new System.EventHandler(this.quảnLíBànToolStripMenuItem_Click);
             // 
             // quảnLíMenuToolStripMenuItem
             // 
