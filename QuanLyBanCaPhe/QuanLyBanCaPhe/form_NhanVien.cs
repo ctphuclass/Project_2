@@ -34,6 +34,8 @@ namespace QuanLyBanCaPhe
             btnUpdate.BackColor = System.Drawing.ColorTranslator.FromHtml("#E67E22");
             btnDelete.BackColor = System.Drawing.ColorTranslator.FromHtml("#F31D2F");
             LoadNV();
+
+            btnAdd.Image = Properties.Resources.add_iconn;
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -48,32 +50,58 @@ namespace QuanLyBanCaPhe
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            if(tbxMaNV.Text == "" || tbxTenNV.Text == "")
+            try
             {
-                MessageBox.Show("Vui lòng nhập thông tin!");
+                NhanVien_DTO nv = new NhanVien_DTO();
+                nv.MaNV = tbxMaNV.Text;
+                nv.TenNV = tbxTenNV.Text;
+                nv.GioiTinh = tbxGT.Text;
+                nv.Luong = Int32.Parse(tbxLuong.Text);
+                nv.NgaySinh = DateTime.Parse(tbxNgaySinh.Text);
+                nv.NgayVaoLam = DateTime.Parse(tbxNgayVaoLam.Text);
+                nv.SDT = tbxSDT.Text;
+                nv.DiaChi = tbxDC.Text;
+                nv.ChucVu = tbxChucVu.Text;
+                nv.Email = tbxEmail.Text;
+                if (NhanVien_BUS.Add_NV(nv) == true)
+                    MessageBox.Show("Thêm Nhân Viên Thành Công!", "Thông Báo");
+                else
+                    MessageBox.Show("Thêm Nhân Viên Thất Bại!", "Thông Báo");
+                tbxMaNV.Text = "";
+                tbxTenNV.Text = "";
+                tbxGT.Text = "";
+                tbxLuong.Text = "";
+                tbxNgaySinh.Text = "";
+                tbxNgayVaoLam.Text = "";
+                tbxSDT.Text = "";
+                tbxDC.Text = "";
+                tbxChucVu.Text = "";
+                tbxEmail.Text = "";
+                LoadNV();
             }
-            NhanVien_DTO nv = new NhanVien_DTO();
-            nv.MaNV = tbxMaNV.Text;
-            nv.TenNV = tbxTenNV.Text;
-            nv.GioiTinh = tbxGT.Text;
-            nv.Luong = Int32.Parse(tbxLuong.Text);
-            nv.NgaySinh = DateTime.Parse(tbxNgaySinh.Text);
-            nv.NgayVaoLam = DateTime.Parse(tbxNgayVaoLam.Text);
-            nv.SDT = tbxSDT.Text;
-            nv.DiaChi = tbxDC.Text;
-            nv.ChucVu = tbxChucVu.Text;
-            nv.Email = tbxEmail.Text;
-            if (NhanVien_BUS.Add_NV(nv) == true)
-                MessageBox.Show("Thêm Nhân Viên Thành Công!", "Thông Báo");
-            else
-                MessageBox.Show("Thêm Nhân Viên Thất Bại!", "Thông Báo");
-            LoadNV();     
+            catch
+            {
+                MessageBox.Show("Vui lòng nhập đầy đủ thông tin nhân viên");
+            }
+     
         }
         public void LoadNV()
         {
             List<NhanVien_DTO> ListNV = NhanVien_BUS.List_NV();
             dataGridView1.DataSource = ListNV;
+            dataGridView1.Columns["MaNV"].HeaderText = "Mã Nhân Viên";
+            dataGridView1.Columns["TenNV"].HeaderText = "Tên Nhân Viên";
+            dataGridView1.Columns["GioiTinh"].HeaderText = "Giới Tính";
+            dataGridView1.Columns["Luong"].HeaderText = "Lương";
+            dataGridView1.Columns["NgaySinh"].HeaderText = "Ngày Sinh";
+            dataGridView1.Columns["NgayVaoLam"].HeaderText = "Ngày Vào Làm";
+            dataGridView1.Columns["SDT"].HeaderText = "Số Điện Thoại";
+            dataGridView1.Columns["DiaChi"].HeaderText = "Địa Chỉ";
+            dataGridView1.Columns["ChucVu"].HeaderText = "Chức Vụ";
+            tbxMaNV.Enabled = false;
+            checkBox1.Checked = false;
         }
+        
 
         private void dataGridView1_Click(object sender, EventArgs e)
         {
@@ -111,6 +139,16 @@ namespace QuanLyBanCaPhe
                 MessageBox.Show("Sửa Nhân Viên Thành Công!", "Thông Báo");
             else
                 MessageBox.Show("Sửa Nhân Viên Thất Bại!", "Thông Báo");
+            tbxMaNV.Text = "";
+            tbxTenNV.Text = "";
+            tbxGT.Text = "";
+            tbxLuong.Text = "";
+            tbxNgaySinh.Text = "";
+            tbxNgayVaoLam.Text = "";
+            tbxSDT.Text = "";
+            tbxDC.Text = "";
+            tbxChucVu.Text = "";
+            tbxEmail.Text = "";
             LoadNV();
         }
 
@@ -126,6 +164,16 @@ namespace QuanLyBanCaPhe
                 MessageBox.Show("Xóa Nhân Viên Thành Công!", "Thông Báo");
             else
                 MessageBox.Show("Xóa Nhân Viên Thất Bại!", "Thông Báo");
+            tbxMaNV.Text = "";
+            tbxTenNV.Text = "";
+            tbxGT.Text = "";
+            tbxLuong.Text = "";
+            tbxNgaySinh.Text = "";
+            tbxNgayVaoLam.Text = "";
+            tbxSDT.Text = "";
+            tbxDC.Text = "";
+            tbxChucVu.Text = "";
+            tbxEmail.Text = "";
             LoadNV();
         }
 
@@ -141,6 +189,16 @@ namespace QuanLyBanCaPhe
         {
             LoadNV();
 
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if(checkBox1.Checked == true)
+            {
+                // MessageBox.Show("Chỉ chọn mục này khi bạn muốn thêm 1 nhân viên mới", "Cảnh báo",MessageBoxButtons.OKCancel);
+                //if( == DialogResult.OK)
+                tbxMaNV.Enabled = true;
+            }
         }
     }
 }

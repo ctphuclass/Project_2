@@ -59,6 +59,7 @@
             this.btnSearch = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.btnBack = new System.Windows.Forms.Button();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -77,7 +78,7 @@
             this.button1.Location = new System.Drawing.Point(0, 83);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(628, 362);
-            this.button1.TabIndex = 1;
+            this.button1.TabIndex = 11;
             this.button1.UseVisualStyleBackColor = true;
             // 
             // tbxDC
@@ -85,70 +86,71 @@
             this.tbxDC.Location = new System.Drawing.Point(193, 207);
             this.tbxDC.Name = "tbxDC";
             this.tbxDC.Size = new System.Drawing.Size(209, 20);
-            this.tbxDC.TabIndex = 22;
+            this.tbxDC.TabIndex = 2;
             // 
             // tbxLuong
             // 
             this.tbxLuong.Location = new System.Drawing.Point(193, 404);
             this.tbxLuong.Name = "tbxLuong";
             this.tbxLuong.Size = new System.Drawing.Size(209, 20);
-            this.tbxLuong.TabIndex = 20;
+            this.tbxLuong.TabIndex = 8;
             // 
             // tbxChucVu
             // 
             this.tbxChucVu.Location = new System.Drawing.Point(193, 371);
             this.tbxChucVu.Name = "tbxChucVu";
             this.tbxChucVu.Size = new System.Drawing.Size(209, 20);
-            this.tbxChucVu.TabIndex = 19;
+            this.tbxChucVu.TabIndex = 7;
             // 
             // tbxNgayVaoLam
             // 
             this.tbxNgayVaoLam.Location = new System.Drawing.Point(193, 339);
             this.tbxNgayVaoLam.Name = "tbxNgayVaoLam";
             this.tbxNgayVaoLam.Size = new System.Drawing.Size(209, 20);
-            this.tbxNgayVaoLam.TabIndex = 18;
+            this.tbxNgayVaoLam.TabIndex = 6;
             // 
             // tbxNgaySinh
             // 
             this.tbxNgaySinh.Location = new System.Drawing.Point(193, 306);
             this.tbxNgaySinh.Name = "tbxNgaySinh";
             this.tbxNgaySinh.Size = new System.Drawing.Size(209, 20);
-            this.tbxNgaySinh.TabIndex = 17;
+            this.tbxNgaySinh.TabIndex = 5;
             // 
             // tbxEmail
             // 
             this.tbxEmail.Location = new System.Drawing.Point(193, 274);
             this.tbxEmail.Name = "tbxEmail";
             this.tbxEmail.Size = new System.Drawing.Size(209, 20);
-            this.tbxEmail.TabIndex = 16;
+            this.tbxEmail.TabIndex = 4;
             // 
             // tbxSDT
             // 
             this.tbxSDT.Location = new System.Drawing.Point(193, 241);
             this.tbxSDT.Name = "tbxSDT";
             this.tbxSDT.Size = new System.Drawing.Size(209, 20);
-            this.tbxSDT.TabIndex = 15;
+            this.tbxSDT.TabIndex = 3;
             // 
             // tbxGT
             // 
             this.tbxGT.Location = new System.Drawing.Point(193, 176);
             this.tbxGT.Name = "tbxGT";
             this.tbxGT.Size = new System.Drawing.Size(209, 20);
-            this.tbxGT.TabIndex = 14;
+            this.tbxGT.TabIndex = 1;
             // 
             // tbxTenNV
             // 
             this.tbxTenNV.Location = new System.Drawing.Point(193, 143);
             this.tbxTenNV.Name = "tbxTenNV";
             this.tbxTenNV.Size = new System.Drawing.Size(209, 20);
-            this.tbxTenNV.TabIndex = 21;
+            this.tbxTenNV.TabIndex = 0;
             // 
             // tbxMaNV
             // 
+            this.tbxMaNV.Enabled = false;
             this.tbxMaNV.Location = new System.Drawing.Point(193, 108);
             this.tbxMaNV.Name = "tbxMaNV";
             this.tbxMaNV.Size = new System.Drawing.Size(209, 20);
-            this.tbxMaNV.TabIndex = 13;
+            this.tbxMaNV.TabIndex = 0;
             // 
             // label9
             // 
@@ -276,7 +278,6 @@
             // 
             // btnAdd
             // 
-            //this.btnAdd.Image = global::QL_CAFE_SOLUTION.Properties.Resources.add_icon;
             this.btnAdd.Location = new System.Drawing.Point(502, 90);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(110, 106);
@@ -301,7 +302,7 @@
             this.tbxSearch.Location = new System.Drawing.Point(193, 461);
             this.tbxSearch.Name = "tbxSearch";
             this.tbxSearch.Size = new System.Drawing.Size(275, 20);
-            this.tbxSearch.TabIndex = 24;
+            this.tbxSearch.TabIndex = 9;
             this.tbxSearch.Text = "Nhập tên nhân viên cần tìm";
             this.tbxSearch.Click += new System.EventHandler(this.tbxSearch_Click);
             this.tbxSearch.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
@@ -311,18 +312,19 @@
             this.btnSearch.Location = new System.Drawing.Point(474, 458);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(72, 25);
-            this.btnSearch.TabIndex = 25;
+            this.btnSearch.TabIndex = 10;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // dataGridView1
             // 
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(0, 499);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(628, 241);
+            this.dataGridView1.Size = new System.Drawing.Size(628, 189);
             this.dataGridView1.TabIndex = 26;
             this.dataGridView1.Click += new System.EventHandler(this.dataGridView1_Click);
             // 
@@ -331,16 +333,28 @@
             this.btnBack.Location = new System.Drawing.Point(552, 458);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(75, 25);
-            this.btnBack.TabIndex = 27;
+            this.btnBack.TabIndex = 11;
             this.btnBack.Text = "Quay Lai";
             this.btnBack.UseVisualStyleBackColor = true;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(408, 110);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(15, 14);
+            this.checkBox1.TabIndex = 27;
+            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
             // form_NhanVien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(629, 741);
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.ClientSize = new System.Drawing.Size(629, 688);
+            this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.btnSearch);
@@ -372,7 +386,7 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
             this.Name = "form_NhanVien";
-            this.Text = "form_NhanVien";
+            this.Text = "Quản Lí Thông Tin Nhân Viên";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -411,5 +425,6 @@
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button btnBack;
+        private System.Windows.Forms.CheckBox checkBox1;
     }
 }

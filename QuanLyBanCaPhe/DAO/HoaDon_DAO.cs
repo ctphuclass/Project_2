@@ -44,20 +44,27 @@ namespace DAO
         }
         public static  int KTHoaDon(string Ma_Ban)
         {
+            try
+            {
                 string sQuery = string.Format("Select  Ma_Hoa_Don From Hoa_Don where Ma_Ban = '{0}' and Tinh_Trang = 'C'", Ma_Ban);
                 sProvider = new Provider();
                 DataTable dt = sProvider.GetData(sQuery);
                 //List<HoaDon_DTO> HD = new List<HoaDon_DTO>();
                 HoaDon_DTO hd = new HoaDon_DTO();
-                
+
                 if (dt.Rows.Count > 0)
                 {
-                //HoaDon_DTO a = new HoaDon_DTO(dt.Rows[0]);
-                hd.Ma_Hoa_Don = Int32.Parse(dt.Rows[0][0].ToString());
-                return hd.Ma_Hoa_Don;
+                    //HoaDon_DTO a = new HoaDon_DTO(dt.Rows[0]);
+                    hd.Ma_Hoa_Don = Int32.Parse(dt.Rows[0][0].ToString());
+                    return hd.Ma_Hoa_Don;
                 }
                 else
-                return -1;     
+                    return -1;
+            }
+            catch(Exception ex)
+            {
+                throw;
+            }
         }
         //public static ToCheckMaBan(string Ma_Ban)
         //{

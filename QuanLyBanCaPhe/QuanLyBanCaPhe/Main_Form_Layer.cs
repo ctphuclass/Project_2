@@ -20,6 +20,10 @@ namespace QuanLyBanCaPhe
             InitializeComponent();
             //Main_Form_Layer Main = new Main_Form_Layer();
             //Main.BackColor = Color.FromArgb(236, 135, 14);
+            this.BackColor = Color.FromArgb(240, 230, 140);
+            label1.ForeColor = System.Drawing.ColorTranslator.FromHtml("#F24D16");
+            label2.ForeColor = System.Drawing.ColorTranslator.FromHtml("#F24D16");
+
             LoadBan();
         }
 
@@ -146,28 +150,33 @@ namespace QuanLyBanCaPhe
 
         private void dataGridView1_Click_1(object sender, EventArgs e)
         {
-            Ban_DTO Table = listView1.Tag as Ban_DTO;
-            int MaHD = HoaDon_BUS.KTHoaDon(Table.Ma_Ban);
-
-            DataGridViewRow dgvr = dataGridView1.CurrentRow;
-
-            string MaSP = dgvr.Cells["MaSP"].Value.ToString();
-            string TenSP = dgvr.Cells["TenSP"].Value.ToString();
-            int SL = 1;
-            if (MaHD == -1)
+            try
             {
-                HoaDon_BUS.InsertHoaDon(Table.Ma_Ban);
-                int Ma_HDD = ChiTietHD_DAO.GetMaHD();
-                ChiTietHoaDon_BUS.InsertChiTietHoaDon(Ma_HDD, MaSP, TenSP, SL);
-                MessageBox.Show("Them mon thanh cong 1!");
+                Ban_DTO Table = listView1.Tag as Ban_DTO;
+                int MaHD = HoaDon_BUS.KTHoaDon(Table.Ma_Ban);
+                DataGridViewRow dgvr = dataGridView1.CurrentRow;
+                string MaSP = dgvr.Cells["MaSP"].Value.ToString();
+                string TenSP = dgvr.Cells["TenSP"].Value.ToString();
+                int SL = 1;
+                if (MaHD == -1)
+                {
+                    HoaDon_BUS.InsertHoaDon(Table.Ma_Ban);
+                    int Ma_HDD = ChiTietHD_DAO.GetMaHD();
+                    ChiTietHoaDon_BUS.InsertChiTietHoaDon(Ma_HDD, MaSP, TenSP, SL);
+                    MessageBox.Show("Thêm món thành công!");
+                }
+                else
+                {
+                    ChiTietHoaDon_BUS.InsertChiTietHoaDon(MaHD, MaSP, TenSP, SL);
+                    MessageBox.Show("Cộng món thành công!");
+                }
+                ShowThongTin_Ban(Table.Ma_Ban);
+                LoadBan();
             }
-            else
+            catch
             {
-                ChiTietHoaDon_BUS.InsertChiTietHoaDon(MaHD, MaSP, TenSP, SL);
-                MessageBox.Show("Them mon thanh cong 2!");
+                MessageBox.Show("Vui lòng chọn bàn trước khi chọn món");
             }
-            ShowThongTin_Ban(Table.Ma_Ban);
-            LoadBan();
 
         }
     }
