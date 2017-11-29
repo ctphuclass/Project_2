@@ -18,7 +18,7 @@ namespace QuanLyBanCaPhe
         {
             InitializeComponent();
         }
-
+//asdsadsadsadasdsa//
         private void form_Ban_Load(object sender, EventArgs e)
         {
             List<Ban_DTO> ListBan = Ban_BUS.List_Ban();
