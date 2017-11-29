@@ -15,6 +15,7 @@ namespace BUS
         {
             return Ban_DAO.List_Ban();
         }
+        //them,xoa,sua
         public static bool Them_Ban(Ban_DTO Ban_DTO)
         {
             return Ban_DAO.Them_Ban(Ban_DTO);
