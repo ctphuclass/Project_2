@@ -150,6 +150,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="abcd.sql" />
+    <None Include="Resources\User_icon.png" />
     <None Include="Resources\add_iconn.png" />
     <None Include="Resources\Image1.png" />
   </ItemGroup>

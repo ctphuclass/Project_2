@@ -47,8 +47,7 @@ namespace QuanLyBanCaPhe
                     Height = Ban_BUS.tableheight
                 };
                 btn.Text = item.Tenn_Ban + Environment.NewLine + item.Tinh_Trang;
-                string Connectimage = @"C:\Users\Nguyen Thanh Dat\Documents\Visual Studio 2015\Projects\QL_CAFE_SOLUTION\User_icon.png";
-                btn.Image = Image.FromFile(Connectimage);
+                btn.Image = Properties.Resources.User_icon;
                 //btn.Font = new Font(40);
                 //Nut click vo tung ban//
                 btn.Click += Btn_Click;

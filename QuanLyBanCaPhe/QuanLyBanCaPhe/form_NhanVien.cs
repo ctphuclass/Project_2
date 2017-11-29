@@ -195,9 +195,14 @@ namespace QuanLyBanCaPhe
         {
             if(checkBox1.Checked == true)
             {
-                // MessageBox.Show("Chỉ chọn mục này khi bạn muốn thêm 1 nhân viên mới", "Cảnh báo",MessageBoxButtons.OKCancel);
-                //if( == DialogResult.OK)
-                tbxMaNV.Enabled = true;
+                var i = MessageBox.Show("Chỉ chọn mục này khi bạn muốn thêm 1 nhân viên mới", "Cảnh báo", MessageBoxButtons.OKCancel);
+                if (i == DialogResult.OK)
+                    tbxMaNV.Enabled = true;
+                else
+                {
+                    checkBox1.Checked = false;
+                    return;
+                }
             }
         }
     }
