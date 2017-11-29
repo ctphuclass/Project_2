@@ -17,12 +17,27 @@ namespace QuanLyBanCaPhe
         public form_Menu()
         {
             InitializeComponent();
+            this.BackColor = Color.FromArgb(240, 230, 140);
+            pictureBox1.BackColor = System.Drawing.ColorTranslator.FromHtml("#27AE60");
+            pictureBox2.BackColor = System.Drawing.ColorTranslator.FromHtml("#E67E22");
+            pictureBox3.BackColor = System.Drawing.ColorTranslator.FromHtml("#F31D2F");
+            pictureBox4.BackColor = System.Drawing.ColorTranslator.FromHtml("#E5FFF2");
+            pictureLoad_2.BackColor = System.Drawing.ColorTranslator.FromHtml("#E5FFF2");
+            pictureBoxLoad3.BackColor = System.Drawing.ColorTranslator.FromHtml("#E5FFF2");
+            tabPage1.BackColor = System.Drawing.ColorTranslator.FromHtml("#A69688");
+            tabPage2.BackColor = System.Drawing.ColorTranslator.FromHtml("#A69688");
+            tabPage3.BackColor = System.Drawing.ColorTranslator.FromHtml("#A69688");
+
         }
 
         private void pictureBox4_Click(object sender, EventArgs e)
         {
+            LoadMenu1();
+        }
+        public void LoadMenu1()
+        {
             List<Menu_DTO> Menu_main_1 = Menu_BUS.Menu_Main_1();
-            dataGridView1.DataSource = Menu_main_1; 
+            dataGridView1.DataSource = Menu_main_1;
         }
 
         private void dataGridView1_Click(object sender, EventArgs e)
@@ -56,6 +71,16 @@ namespace QuanLyBanCaPhe
             {
                 MessageBox.Show("Thêm Thất Bại!");
             }
+            tbxMaSP.Text = "";
+            tbxTenSP.Text = "";
+            tbxLoaiSP.Text = "";
+            tbxDVT.Text = "";
+            tbxDG.Text = "";
+            checkBox1.Checked = false;
+            tbxMaSP.Enabled = false;
+            LoadMenu1();
+            LoadMenu2();
+            LoadMenu3();
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
@@ -79,6 +104,14 @@ namespace QuanLyBanCaPhe
             {
                 MessageBox.Show("Sua Thất Bại!");
             }
+            tbxMaSP.Text = "";
+            tbxTenSP.Text = "";
+            tbxLoaiSP.Text = "";
+            tbxDVT.Text = "";
+            tbxDG.Text = "";
+            LoadMenu1();
+            LoadMenu2();
+            LoadMenu3();
         }
 
         private void pictureBox3_Click(object sender, EventArgs e)
@@ -102,6 +135,14 @@ namespace QuanLyBanCaPhe
             {
                 MessageBox.Show("Xoa Thất Bại!");
             }
+            tbxMaSP.Text = "";
+            tbxTenSP.Text = "";
+            tbxLoaiSP.Text = "";
+            tbxDVT.Text = "";
+            tbxDG.Text = "";
+            LoadMenu1();
+            LoadMenu2();
+            LoadMenu3();
         }
 
         private void pictureBox5_Click(object sender, EventArgs e)
@@ -110,6 +151,10 @@ namespace QuanLyBanCaPhe
         }
 
         private void pictureLoad_2_Click(object sender, EventArgs e)
+        {
+            LoadMenu2();
+        }
+        public void LoadMenu2()
         {
             List<Menu_DTO> Menu_2 = Menu_BUS.Menu_Main_2();
             dataGridView2.DataSource = Menu_2;
@@ -126,6 +171,10 @@ namespace QuanLyBanCaPhe
         }
 
         private void pictureBoxLoad3_Click(object sender, EventArgs e)
+        {
+            LoadMenu3();   
+        }
+        public void LoadMenu3()
         {
             List<Menu_DTO> Menu = Menu_BUS.List_Menu_3();
             dataGridView3.DataSource = Menu;
@@ -168,6 +217,23 @@ namespace QuanLyBanCaPhe
             dataGridView3.DataSource = List_3;
 
 
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox1.Checked == true)
+            {
+                var i = MessageBox.Show("Chỉ chọn mục này khi bạn muốn thêm 1 nhân viên mới", "Cảnh báo", MessageBoxButtons.OKCancel);
+                if (i == DialogResult.OK)
+                    tbxMaSP.Enabled = true;
+                else
+                {
+                    checkBox1.Checked = false;
+                    return;
+                }
+            }
+            else
+                tbxMaSP.Enabled = false;
         }
     }
 }
