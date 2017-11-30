@@ -178,5 +178,53 @@ namespace QuanLyBanCaPhe
             }
 
         }
+
+        private void btnInHoaDon_Click(object sender, EventArgs e)
+        {
+            PrintHD(listView1);
+        }
+        private void PrintHD(ListView lv)
+        {
+            string filename = "";
+            SaveFileDialog Save = new SaveFileDialog();
+            Save.Title = "In Hóa Đơn Cửa Hàng Cà Phê";
+            Save.Filter = "Text File (.txt)|*.txt";
+            if (Save.ShowDialog() == DialogResult.OK)
+            {
+                filename = Save.FileName.ToString();
+                if (filename != "")
+                {
+                    using (System.IO.StreamWriter sw = new System.IO.StreamWriter(filename))
+                    {
+                        sw.WriteLine("Phần mềm Quản lí bán Cà Phê");
+                        sw.WriteLine("Địa Chỉ: Cao Đẳng Viễn Đông, lô số 10 Công Viên Phần Mềm Quang Trung");
+                        sw.WriteLine("Chủ quán: Lê Văn Pháp - Nguyễn Thành Đạt");
+                        sw.WriteLine();
+                        sw.WriteLine();
+                        sw.WriteLine();
+                        sw.WriteLine();
+                        sw.WriteLine("                                      HÓA ĐƠN TÍNH TIỀN               ");
+                        sw.WriteLine();
+                        sw.WriteLine();
+                        sw.WriteLine();
+                        sw.WriteLine();
+                        sw.WriteLine("                  Bàn số : {0}", label2.Text);
+                        sw.WriteLine();
+                        sw.WriteLine("                      Tên Món     Số lượng        DVT         Giá");
+                        int tt = 0;
+                        //int tt1 = 0, tt2 = 0;
+                        foreach (ListViewItem item in lv.Items)
+                        {
+                            sw.WriteLine("                    {0}         {1}               {2}         {3} Ngàn đồng", item.SubItems[0].Text, item.SubItems[1].Text, item.SubItems[2].Text, item.SubItems[3].Text);
+                             tt =  tt + Int32.Parse(item.SubItems[3].Text) ;
+                        }
+                        sw.WriteLine();
+                        sw.WriteLine();
+
+                        sw.WriteLine("            TỔNG TIỀN LÀ: {0}", tt.ToString());
+                    }
+                }
+            }
+        }
     }
 }

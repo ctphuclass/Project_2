@@ -89,10 +89,13 @@ namespace QuanLyBanCaPhe
                 {
                     using (System.IO.StreamWriter sw = new System.IO.StreamWriter(filename))
                     {
+                        sw.WriteLine("Thông tin chi tiết doanh thu từ ngày:{0} đến ngày: {1}", dateTimePicker1.Text, dateTimePicker2.Text);
+                        sw.WriteLine("Bàn số : {0}", comboBox1.Text);
                         foreach (ListViewItem item in lv.Items)
                         {
-                            sw.WriteLine("{0}{1}{2}{3}{4}", item.SubItems[0].Text, item.SubItems[1].Text, item.SubItems[2].Text, item.SubItems[3].Text, item.SubItems[4].Text);
+                            sw.WriteLine("{0} {1} {2} {3} {4}", item.SubItems[0].Text, item.SubItems[1].Text, item.SubItems[2].Text, item.SubItems[3].Text, item.SubItems[4].Text);
                         }
+                        sw.WriteLine("Tong tien la: {0}",textBox1.Text);
                     }
                 }
             }
