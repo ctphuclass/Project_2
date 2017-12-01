@@ -12,7 +12,7 @@ namespace DAO
     {
         public static SqlConnection conn;
         public static Provider sprovider;
-        
+        //ban
         public static List<Ban_DTO> List_Ban()
         {
             string sQuery = "select * from Ban ";

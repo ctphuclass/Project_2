@@ -18,7 +18,7 @@ namespace QuanLyBanCaPhe
         {
             InitializeComponent();
         }
-//asdsadsadsadasdsa//
+//load
         private void form_Ban_Load(object sender, EventArgs e)
         {
             List<Ban_DTO> ListBan = Ban_BUS.List_Ban();
@@ -34,7 +34,7 @@ namespace QuanLyBanCaPhe
             textBox4.Text = drvr.Cells["Tinh_Trang"].Value.ToString();
             textBox5.Text = drvr.Cells["So"].Value.ToString();
         }
-
+        //them
         private void button2_Click(object sender, EventArgs e)
         {
             if (textBox2.Text == "" || textBox1.Text == "")
@@ -60,7 +60,7 @@ namespace QuanLyBanCaPhe
             dtgvBan.DataSource = ListBan;
 
         }
-
+        //sua
         private void button4_Click(object sender, EventArgs e)
         {
             if (textBox2.Text == "" || textBox1.Text == "")
@@ -85,7 +85,7 @@ namespace QuanLyBanCaPhe
             List<Ban_DTO> ListBan = Ban_BUS.List_Ban();
             dtgvBan.DataSource = ListBan;
         }
-
+        //xoa
         private void button3_Click(object sender, EventArgs e)
         {
             if (textBox2.Text == "" || textBox1.Text == "")
