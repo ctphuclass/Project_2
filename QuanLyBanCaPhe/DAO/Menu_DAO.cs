@@ -77,40 +77,94 @@ namespace DAO
                 
             }
         }
-        public static bool Sua_Menu_1(Menu_DTO Menu_DTO)
+        public static Results Sua_Menu_1(Menu_DTO Menu_DTO)
         {
-            
-            try
-            {     
-                           
-                string sQuery2 = string.Format("Update MENU set Ten_SP = N'{0}', Loai_SP =N'{1}', DVT = N'{2}', Don_Gia = {3} where Ma_SP = '{4}'", Menu_DTO.TenSP, Menu_DTO.LoaiSP, Menu_DTO.DVT, Menu_DTO.DonGia, Menu_DTO.MaSP);               
-                sprovider = new Provider();              
-                var u = sprovider.ExcuteData(sQuery2);               
-                return true;
-                conn.Close();
-            }
-            catch (Exception Ex)
-            {
-                return false;
-                throw Ex;
-            }
-        }
-        public static bool Xoa_Menu_1(Menu_DTO Menu_DTO)
-        {
-            try
-            {
 
-                string sQuery2 = string.Format("Delete From MENU  where Ma_SP = '{0}'", Menu_DTO.MaSP);
-                sprovider = new Provider();
-                var u = sprovider.ExcuteData(sQuery2);
-                return true;
-                conn.Close();
-            }
-            catch (Exception Ex)
+            //try
+            //{     
+
+            //    string sQuery2 = string.Format("Update MENU set Ten_SP = N'{0}', Loai_SP =N'{1}', DVT = N'{2}', Don_Gia = {3} where Ma_SP = '{4}'", Menu_DTO.TenSP, Menu_DTO.LoaiSP, Menu_DTO.DVT, Menu_DTO.DonGia, Menu_DTO.MaSP);               
+            //    sprovider = new Provider();              
+            //    var u = sprovider.ExcuteData(sQuery2);               
+            //    return true;
+            //    conn.Close();
+            //}
+            //catch (Exception Ex)
+            //{
+            //    return false;
+            //    throw Ex;
+            //}
+            Results re = new Results();
+            try
             {
-                return false;
-                throw Ex;
+                //string sQuery = string.Format("exec proc_UpdateNV @TenNV=N'{0}',@GT='{1}',@DiaChi=N'{2}',@SDT='{3}',@Email='{4}',@Ngay_Sinh ='{5}',@Chuc_Vu=N'{6}',@NVL='{7}',@Luong={8},@MaNV='{9}'", nv.TenNV, nv.GioiTinh, nv.DiaChi, nv.SDT, nv.Email, nv.NgaySinh, nv.ChucVu, nv.NgayVaoLam, nv.Luong, nv.MaNV);
+                string sQuery = @"Data Source=.\SQLEXPRESS;Initial Catalog=QL_Cafe;Integrated Security=True";
+                conn = new SqlConnection(sQuery);
+                SqlCommand cmd = new SqlCommand("proc_UpdateMENU", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@Ma_SP", Menu_DTO.MaSP);
+                cmd.Parameters.AddWithValue("@Ten_SP", Menu_DTO.TenSP);
+                cmd.Parameters.AddWithValue("@Loai_SP", Menu_DTO.LoaiSP);
+                cmd.Parameters.AddWithValue("@DVT", Menu_DTO.DVT);
+                cmd.Parameters.AddWithValue("@Don_Gia", Menu_DTO.DonGia);                      
+                cmd.Parameters.AddWithValue("@resutsID", re.ResultID);
+                cmd.Parameters.AddWithValue("@Message", re.Message);
+                cmd.Parameters["@resutsID"].Direction = ParameterDirection.Output;
+                cmd.Parameters["@Message"].Direction = ParameterDirection.Output;
+                cmd.Parameters["@Message"].Size = 50;
+                conn.Open();
+                var u = cmd.ExecuteNonQuery();
+                re.ResultID = int.Parse(cmd.Parameters["@resutsID"].Value.ToString());
+                re.Message = cmd.Parameters["@Message"].Value.ToString();
+
             }
+            catch (Exception ex)
+            {
+                re.ResultID = -1;
+                re.Message = ex.Message;
+            }
+            return re;
+        }
+        public static Results Xoa_Menu_1(Menu_DTO Menu_DTO)
+        {
+            Results re = new Results();
+            try
+            {
+                string sQuery = @"Data Source=.\SQLEXPRESS;Initial Catalog=QL_Cafe;Integrated Security=True";
+                conn = new SqlConnection(sQuery);
+                SqlCommand cmd = new SqlCommand("proc_XoaMENU", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@psMaSP", Menu_DTO.MaSP);
+                cmd.Parameters.AddWithValue("@pResultCode", re.ResultID);
+                cmd.Parameters.AddWithValue("@pResultMessage", re.Message);
+                cmd.Parameters["@pResultCode"].Direction = ParameterDirection.Output;
+                cmd.Parameters["@pResultMessage"].Direction = ParameterDirection.Output;
+                cmd.Parameters["@pResultMessage"].Size = 50;
+                conn.Open();
+                var u = cmd.ExecuteNonQuery();
+                re.ResultID = int.Parse(cmd.Parameters["@pResultCode"].Value.ToString());
+                re.Message = cmd.Parameters["@pResultMessage"].Value.ToString();
+            }
+            catch (Exception ex)
+            {
+                re.ResultID = -1;
+                re.Message = ex.Message;
+            }
+            return re;
+            //try
+            //{
+
+            //    string sQuery2 = string.Format("Delete From MENU  where Ma_SP = '{0}'", Menu_DTO.MaSP);
+            //    sprovider = new Provider();
+            //    var u = sprovider.ExcuteData(sQuery2);
+            //    return true;
+            //    conn.Close();
+            //}
+            //catch (Exception Ex)
+            //{
+            //    return false;
+            //    throw Ex;
+            //}
         }
 
         public static List<Menu_DTO> List_Menu_2()

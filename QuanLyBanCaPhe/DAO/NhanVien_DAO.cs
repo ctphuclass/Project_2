@@ -51,35 +51,82 @@ namespace DAO
                 throw;
             }
         }
-        public static bool Update_NV(NhanVien_DTO nv)
+        public  static Results Update_NV(NhanVien_DTO nv)
         {
+            Results re = new Results();
             try
             {
-                string sQuery = string.Format("exec proc_UpdateNV @TenNV=N'{0}',@GT='{1}',@DiaChi=N'{2}',@SDT='{3}',@Email='{4}',@Ngay_Sinh ='{5}',@Chuc_Vu=N'{6}',@NVL='{7}',@Luong={8},@MaNV='{9}'", nv.TenNV, nv.GioiTinh, nv.DiaChi, nv.SDT, nv.Email, nv.NgaySinh, nv.ChucVu, nv.NgayVaoLam, nv.Luong, nv.MaNV);
-                sprovider = new Provider();
-                var u = sprovider.ExcuteData(sQuery);
-                return true;
+                //string sQuery = string.Format("exec proc_UpdateNV @TenNV=N'{0}',@GT='{1}',@DiaChi=N'{2}',@SDT='{3}',@Email='{4}',@Ngay_Sinh ='{5}',@Chuc_Vu=N'{6}',@NVL='{7}',@Luong={8},@MaNV='{9}'", nv.TenNV, nv.GioiTinh, nv.DiaChi, nv.SDT, nv.Email, nv.NgaySinh, nv.ChucVu, nv.NgayVaoLam, nv.Luong, nv.MaNV);
+                string sQuery = @"Data Source=.\SQLEXPRESS;Initial Catalog=QL_Cafe;Integrated Security=True";
+                conn = new SqlConnection(sQuery);
+                SqlCommand cmd = new SqlCommand("proc_UpdateNV", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@MaNV", nv.MaNV);
+                cmd.Parameters.AddWithValue("@TenNV",nv.TenNV);
+                cmd.Parameters.AddWithValue("@GT", nv.GioiTinh);
+                cmd.Parameters.AddWithValue("@DiaChi", nv.DiaChi);
+                cmd.Parameters.AddWithValue("@SDT", nv.SDT);
+                cmd.Parameters.AddWithValue("@Email", nv.Email);
+                cmd.Parameters.AddWithValue("@Ngay_Sinh", nv.NgaySinh);
+                cmd.Parameters.AddWithValue("@Chuc_Vu", nv.ChucVu);
+                cmd.Parameters.AddWithValue("@NVL", nv.NgayVaoLam);
+                cmd.Parameters.AddWithValue("@Luong", nv.Luong);               
+                cmd.Parameters.AddWithValue("@resutsID", re.ResultID);
+                cmd.Parameters.AddWithValue("@Message", re.Message);
+                cmd.Parameters["@resutsID"].Direction = ParameterDirection.Output;
+                cmd.Parameters["@Message"].Direction = ParameterDirection.Output;
+                cmd.Parameters["@Message"].Size = 50;
+                conn.Open();
+                var u = cmd.ExecuteNonQuery();
+                re.ResultID = int.Parse(cmd.Parameters["@resutsID"].Value.ToString());
+                re.Message = cmd.Parameters["@Message"].Value.ToString();
+
             }
-            catch
+            catch(Exception ex)
             {
-                return false;
-                throw;
+                re.ResultID = -1;
+                re.Message = ex.Message;
             }
+            return re;
         }
-        public static bool Delete_NV(NhanVien_DTO nv)
+        public static Results Delete_NV(NhanVien_DTO nv)
         {
+            //try
+            //{
+            //    string sQuery = string.Format("exec proc_DeleteNV @MaNV='{0}'", nv.MaNV);
+            //    sprovider = new Provider();
+            //    var u = sprovider.ExcuteData(sQuery);
+            //    return true;
+            //}
+            //catch
+            //{
+            //    return false;
+            //    throw;
+            //}
+            Results re = new Results();
             try
             {
-                string sQuery = string.Format("exec proc_DeleteNV @MaNV='{0}'", nv.MaNV);
-                sprovider = new Provider();
-                var u = sprovider.ExcuteData(sQuery);
-                return true;
+                string sQuery = @"Data Source=.\SQLEXPRESS;Initial Catalog=QL_Cafe;Integrated Security=True";
+                conn = new SqlConnection(sQuery);
+                SqlCommand cmd = new SqlCommand("usp_USER_DeleteUser", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@psMaNV", nv.MaNV);
+                cmd.Parameters.AddWithValue("@pResultCode", re.ResultID);
+                cmd.Parameters.AddWithValue("@pResultMessage", re.Message);
+                cmd.Parameters["@pResultCode"].Direction = ParameterDirection.Output;
+                cmd.Parameters["@pResultMessage"].Direction = ParameterDirection.Output;
+                cmd.Parameters["@pResultMessage"].Size = 50;
+                conn.Open();
+                var u = cmd.ExecuteNonQuery();
+                re.ResultID = int.Parse(cmd.Parameters["@pResultCode"].Value.ToString());
+                re.Message = cmd.Parameters["@pResultMessage"].Value.ToString();
             }
-            catch
+            catch (Exception ex)
             {
-                return false;
-                throw;
+                re.ResultID = -1;
+                re.Message = ex.Message;
             }
+            return re;
         }
         public static List<NhanVien_DTO> List_Search(NhanVien_DTO nv)
         {

@@ -50,6 +50,7 @@
     <Compile Include="NhanVien_BUS.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ShowHoaDon_BUS.cs" />
+    <Compile Include="UserBUS.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DAO\DAO.csproj">

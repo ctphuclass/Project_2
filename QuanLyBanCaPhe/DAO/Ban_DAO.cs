@@ -49,39 +49,93 @@ namespace DAO
 
             }
         }
-        public static bool Sua_Ban(Ban_DTO Ban_DTO)
+        public static Results Sua_Ban(Ban_DTO Ban_DTO)
         {
 
+            //try
+            //{
+            //    string sQuery2 = string.Format("Update Ban set Ten_Ban = N'{0}', Ma_KV =N'{1}', Tinh_Trang = '{2}', So_TT = {3} where Ma_Ban = '{4}'", Ban_DTO.Tenn_Ban, Ban_DTO.Ma_KV, Ban_DTO.Tinh_Trang, Ban_DTO.So, Ban_DTO.Ma_Ban);
+            //    sprovider = new Provider();
+            //    var u = sprovider.ExcuteData(sQuery2);
+            //    return true;
+            //    conn.Close();
+            //}
+            //catch (Exception Ex)
+            //{
+            //    return false;
+
+            //}
+            Results re = new Results();
             try
             {
-                string sQuery2 = string.Format("Update Ban set Ten_Ban = N'{0}', Ma_KV =N'{1}', Tinh_Trang = '{2}', So_TT = {3} where Ma_Ban = '{4}'", Ban_DTO.Tenn_Ban, Ban_DTO.Ma_KV, Ban_DTO.Tinh_Trang, Ban_DTO.So, Ban_DTO.Ma_Ban);
-                sprovider = new Provider();
-                var u = sprovider.ExcuteData(sQuery2);
-                return true;
-                conn.Close();
-            }
-            catch (Exception Ex)
-            {
-                return false;
+                //string sQuery = string.Format("exec proc_UpdateNV @TenNV=N'{0}',@GT='{1}',@DiaChi=N'{2}',@SDT='{3}',@Email='{4}',@Ngay_Sinh ='{5}',@Chuc_Vu=N'{6}',@NVL='{7}',@Luong={8},@MaNV='{9}'", nv.TenNV, nv.GioiTinh, nv.DiaChi, nv.SDT, nv.Email, nv.NgaySinh, nv.ChucVu, nv.NgayVaoLam, nv.Luong, nv.MaNV);
+                string sQuery = @"Data Source=.\SQLEXPRESS;Initial Catalog=QL_Cafe;Integrated Security=True";
+                conn = new SqlConnection(sQuery);
+                SqlCommand cmd = new SqlCommand("proc_UpdateBan", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@Ma_Ban", Ban_DTO.Ma_Ban);
+                cmd.Parameters.AddWithValue("@Ten_Ban", Ban_DTO.Tenn_Ban);
+                cmd.Parameters.AddWithValue("@Ma_KV", Ban_DTO.Ma_KV);
+                cmd.Parameters.AddWithValue("@Tinh_Trang", Ban_DTO.Tinh_Trang);
+                cmd.Parameters.AddWithValue("@So_TT", Ban_DTO.So);
+                cmd.Parameters.AddWithValue("@resutsID", re.ResultID);
+                cmd.Parameters.AddWithValue("@Message", re.Message);
+                cmd.Parameters["@resutsID"].Direction = ParameterDirection.Output;
+                cmd.Parameters["@Message"].Direction = ParameterDirection.Output;
+                cmd.Parameters["@Message"].Size = 50;
+                conn.Open();
+                var u = cmd.ExecuteNonQuery();
+                re.ResultID = int.Parse(cmd.Parameters["@resutsID"].Value.ToString());
+                re.Message = cmd.Parameters["@Message"].Value.ToString();
 
             }
+            catch (Exception ex)
+            {
+                re.ResultID = -1;
+                re.Message = ex.Message;
+            }
+            return re;
         }
-        public static bool Xoa_Ban(Ban_DTO Ban_DTO)
+        public static Results Xoa_Ban(Ban_DTO Ban_DTO)
         {
 
+            //try
+            //{
+            //    string sQuery2 = string.Format("Delete from Ban where Ma_Ban = '{0}'", Ban_DTO.Ma_Ban);
+            //    sprovider = new Provider();
+            //    var u = sprovider.ExcuteData(sQuery2);
+            //    return true;
+            //    conn.Close();
+            //}
+            //catch (Exception Ex)
+            //{
+            //    return false;
+
+            //}
+            Results re = new Results();
             try
             {
-                string sQuery2 = string.Format("Delete from Ban where Ma_Ban = '{0}'", Ban_DTO.Ma_Ban);
-                sprovider = new Provider();
-                var u = sprovider.ExcuteData(sQuery2);
-                return true;
-                conn.Close();
+                string sQuery = @"Data Source=.\SQLEXPRESS;Initial Catalog=QL_Cafe;Integrated Security=True";
+                conn = new SqlConnection(sQuery);
+                SqlCommand cmd = new SqlCommand("XoaBan", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@psMaban", Ban_DTO.Ma_Ban);
+                cmd.Parameters.AddWithValue("@pResultCode", re.ResultID);
+                cmd.Parameters.AddWithValue("@pResultMessage", re.Message);
+                cmd.Parameters["@pResultCode"].Direction = ParameterDirection.Output;
+                cmd.Parameters["@pResultMessage"].Direction = ParameterDirection.Output;
+                cmd.Parameters["@pResultMessage"].Size = 50;
+                conn.Open();
+                var u = cmd.ExecuteNonQuery();
+                re.ResultID = int.Parse(cmd.Parameters["@pResultCode"].Value.ToString());
+                re.Message = cmd.Parameters["@pResultMessage"].Value.ToString();
             }
-            catch (Exception Ex)
+            catch (Exception ex)
             {
-                return false;
-
+                re.ResultID = -1;
+                re.Message = ex.Message;
             }
+            return re;
         }
     }
 }

@@ -90,20 +90,26 @@ namespace QuanLyBanCaPhe
                 MessageBox.Show("Vui lòng nhập dữ liệu!");
                 return;
             }
+            Results rs = new Results();
             Menu_DTO Menu_DTO = new Menu_DTO();
             Menu_DTO.MaSP = tbxMaSP.Text;
             Menu_DTO.TenSP = tbxTenSP.Text;
             Menu_DTO.LoaiSP = tbxLoaiSP.Text;
             Menu_DTO.DVT = tbxDVT.Text;
             Menu_DTO.DonGia = Int32.Parse(tbxDG.Text);
-            if (Menu_BUS.Sua_Menu_1(Menu_DTO) == true)
-            {
-                MessageBox.Show("Sua Thành Công!");
-            }
+            rs = Menu_BUS.Sua_Menu_1(Menu_DTO);
+            if (rs.ResultID > 0)
+                MessageBox.Show(rs.Message);
             else
-            {
-                MessageBox.Show("Sua Thất Bại!");
-            }
+                MessageBox.Show(rs.Message);
+            //if (Menu_BUS.Sua_Menu_1(Menu_DTO) == true)
+            //{
+            //    MessageBox.Show("Sua Thành Công!");
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Sua Thất Bại!");
+            //}
             tbxMaSP.Text = "";
             tbxTenSP.Text = "";
             tbxLoaiSP.Text = "";
@@ -121,20 +127,26 @@ namespace QuanLyBanCaPhe
                 MessageBox.Show("Vui lòng nhập dữ liệu!");
                 return;
             }
+            Results rs = new Results();
             Menu_DTO Menu_DTO = new Menu_DTO();
             Menu_DTO.MaSP = tbxMaSP.Text;
             Menu_DTO.TenSP = tbxTenSP.Text;
             Menu_DTO.LoaiSP = tbxLoaiSP.Text;
             Menu_DTO.DVT = tbxDVT.Text;
             Menu_DTO.DonGia = Int32.Parse(tbxDG.Text);
-            if (Menu_BUS.Xoa_Menu_1(Menu_DTO) == true)
-            {
-                MessageBox.Show("Xoa Thành Công!");
-            }
+            rs = Menu_BUS.Xoa_Menu_1(Menu_DTO);
+            if (rs.ResultID > 0)
+                MessageBox.Show(rs.Message);
             else
-            {
-                MessageBox.Show("Xoa Thất Bại!");
-            }
+                MessageBox.Show(rs.Message);
+            //if (Menu_BUS.Xoa_Menu_1(Menu_DTO) == true)
+            //{
+            //    MessageBox.Show("Xoa Thành Công!");
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Xoa Thất Bại!");
+            //}
             tbxMaSP.Text = "";
             tbxTenSP.Text = "";
             tbxLoaiSP.Text = "";

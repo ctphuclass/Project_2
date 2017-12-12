@@ -20,11 +20,11 @@ namespace BUS
         {
             return Ban_DAO.Them_Ban(Ban_DTO);
         }
-        public static bool Sua_Ban(Ban_DTO Ban_DTO)
+        public static Results Sua_Ban(Ban_DTO Ban_DTO)
         {
             return Ban_DAO.Sua_Ban(Ban_DTO);
         }
-        public static bool Xoa_Ban(Ban_DTO Ban_DTO)
+        public static Results Xoa_Ban(Ban_DTO Ban_DTO)
         {
             return Ban_DAO.Xoa_Ban(Ban_DTO);
         }

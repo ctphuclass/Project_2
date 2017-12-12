@@ -19,11 +19,11 @@ namespace BUS
         {
             return Menu_DAO.Them_Menu_1(Menu_DTO);
         }
-        public static bool Sua_Menu_1(Menu_DTO Menu_DTO)
+        public static Results Sua_Menu_1(Menu_DTO Menu_DTO)
         {
             return Menu_DAO.Sua_Menu_1(Menu_DTO);
         }
-        public static bool Xoa_Menu_1(Menu_DTO Menu_DTO)
+        public static Results Xoa_Menu_1(Menu_DTO Menu_DTO)
         {
             return Menu_DAO.Xoa_Menu_1(Menu_DTO);
         }

@@ -150,6 +150,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="abcd.sql" />
+    <None Include="Resources\caphe.gif" />
     <None Include="Resources\load_icon.png" />
     <None Include="Resources\delete_icon.png" />
     <None Include="Resources\update_icon.png" />

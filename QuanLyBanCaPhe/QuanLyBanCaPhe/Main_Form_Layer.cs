@@ -134,6 +134,7 @@ namespace QuanLyBanCaPhe
         {
             Ban_DTO Table = listView1.Tag as Ban_DTO;
             int MaHD = HoaDon_BUS.KTHoaDon(Table.Ma_Ban);
+            PrintHD(listView1);
             if (MaHD != 1)
             {
                 HoaDon_BUS.TinhTien(MaHD);
@@ -181,7 +182,7 @@ namespace QuanLyBanCaPhe
 
         private void btnInHoaDon_Click(object sender, EventArgs e)
         {
-            PrintHD(listView1);
+            //PrintHD(listView1);
         }
         private void PrintHD(ListView lv)
         {

@@ -124,6 +124,7 @@ namespace QuanLyBanCaPhe
             {
                 MessageBox.Show("Vui lòng nhập thông tin!");
             }
+            Results rs = new Results();
             NhanVien_DTO nv = new NhanVien_DTO();
             nv.MaNV = tbxMaNV.Text;
             nv.TenNV = tbxTenNV.Text;
@@ -135,10 +136,11 @@ namespace QuanLyBanCaPhe
             nv.DiaChi = tbxDC.Text;
             nv.ChucVu = tbxChucVu.Text;
             nv.Email = tbxEmail.Text;
-            if (NhanVien_BUS.Update_NV(nv) == true)
-                MessageBox.Show("Sửa Nhân Viên Thành Công!", "Thông Báo");
+            rs = NhanVien_BUS.Update_NV(nv);
+            if (rs.ResultID > 0)
+                MessageBox.Show(rs.Message);
             else
-                MessageBox.Show("Sửa Nhân Viên Thất Bại!", "Thông Báo");
+                MessageBox.Show(rs.Message);
             tbxMaNV.Text = "";
             tbxTenNV.Text = "";
             tbxGT.Text = "";
@@ -158,12 +160,14 @@ namespace QuanLyBanCaPhe
             {
                 MessageBox.Show("Vui lòng nhập thông tin!");
             }
+            Results rs = new Results();
             NhanVien_DTO nv = new NhanVien_DTO();
             nv.MaNV = tbxMaNV.Text;
-            if (NhanVien_BUS.Delete_NV(nv) == true)
-                MessageBox.Show("Xóa Nhân Viên Thành Công!", "Thông Báo");
+            rs = NhanVien_BUS.Delete_NV(nv);
+            if (rs.ResultID > 0)
+                MessageBox.Show(rs.Message);
             else
-                MessageBox.Show("Xóa Nhân Viên Thất Bại!", "Thông Báo");
+                MessageBox.Show(rs.Message);
             tbxMaNV.Text = "";
             tbxTenNV.Text = "";
             tbxGT.Text = "";
@@ -175,6 +179,21 @@ namespace QuanLyBanCaPhe
             tbxChucVu.Text = "";
             tbxEmail.Text = "";
             LoadNV();
+            //if (NhanVien_BUS.Delete_NV(nv) == true)
+            //    MessageBox.Show("Xóa Nhân Viên Thành Công!", "Thông Báo");
+            //else
+            //    MessageBox.Show("Xóa Nhân Viên Thất Bại!", "Thông Báo");
+            //tbxMaNV.Text = "";
+            //tbxTenNV.Text = "";
+            //tbxGT.Text = "";
+            //tbxLuong.Text = "";
+            //tbxNgaySinh.Text = "";
+            //tbxNgayVaoLam.Text = "";
+            //tbxSDT.Text = "";
+            //tbxDC.Text = "";
+            //tbxChucVu.Text = "";
+            //tbxEmail.Text = "";
+            //LoadNV();
         }
 
         private void btnSearch_Click(object sender, EventArgs e)

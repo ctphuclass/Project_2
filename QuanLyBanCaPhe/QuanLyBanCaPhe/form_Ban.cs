@@ -68,20 +68,31 @@ namespace QuanLyBanCaPhe
                 MessageBox.Show("Vui lòng nhập dữ liệu!");
                 return;
             }
+            Results rs = new Results();
             Ban_DTO Ban_DTO = new Ban_DTO();
             Ban_DTO.Ma_Ban = textBox1.Text;
             Ban_DTO.Tenn_Ban = textBox2.Text;
             Ban_DTO.Ma_KV = textBox3.Text;
             Ban_DTO.Tinh_Trang = textBox4.Text;
             Ban_DTO.So = Int32.Parse(textBox5.Text);
-            if (Ban_BUS.Sua_Ban(Ban_DTO) == true)
-            {
-                MessageBox.Show("Sua Thành Công!");
-            }
+            rs = Ban_BUS.Sua_Ban(Ban_DTO);
+            //if (Ban_BUS.Sua_Ban(Ban_DTO) == true)
+            //{
+            //    MessageBox.Show("Sua Thành Công!");
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Sua Thất Bại!");
+            //}
+            if (rs.ResultID > 0)
+                MessageBox.Show(rs.Message);
             else
-            {
-                MessageBox.Show("Sua Thất Bại!");
-            }
+                MessageBox.Show(rs.Message);
+            textBox1.Text = "";
+            textBox2.Text = "";
+            textBox3.Text = "";
+            textBox4.Text = "";
+            textBox5.Text = "";
             List<Ban_DTO> ListBan = Ban_BUS.List_Ban();
             dtgvBan.DataSource = ListBan;
         }
@@ -93,20 +104,19 @@ namespace QuanLyBanCaPhe
                 MessageBox.Show("Vui lòng nhập dữ liệu!");
                 return;
             }
+            Results rs = new Results();
             Ban_DTO Ban_DTO = new Ban_DTO();
-            Ban_DTO.Ma_Ban = textBox1.Text;
-            Ban_DTO.Tenn_Ban = textBox2.Text;
-            Ban_DTO.Ma_KV = textBox3.Text;
-            Ban_DTO.Tinh_Trang = textBox4.Text;
-            Ban_DTO.So = Int32.Parse(textBox5.Text);
-            if (Ban_BUS.Xoa_Ban(Ban_DTO) == true)
-            {
-                MessageBox.Show("Xoa Thành Công!");
-            }
+            Ban_DTO.Ma_Ban = textBox1.Text.ToString();
+            //Ban_DTO.Tenn_Ban = textBox2.Text;
+            //Ban_DTO.Ma_KV = textBox3.Text;
+            //Ban_DTO.Tinh_Trang = textBox4.Text;
+            //Ban_DTO.So = Int32.Parse(textBox5.Text);
+            rs = Ban_BUS.Xoa_Ban(Ban_DTO);
+            if (rs.ResultID > 0)
+                MessageBox.Show(rs.Message);
             else
-            {
-                MessageBox.Show("Xoa Thất Bại!");
-            }
+                MessageBox.Show(rs.Message);
+            textBox1.Text = "";
             List<Ban_DTO> ListBan = Ban_BUS.List_Ban();
             dtgvBan.DataSource = ListBan;
         }

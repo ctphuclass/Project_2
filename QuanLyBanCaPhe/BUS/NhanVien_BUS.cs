@@ -18,11 +18,12 @@ namespace BUS
         {
             return NhanVien_DAO.Add_NV(nv);
         }
-        public static bool Update_NV(NhanVien_DTO nv)
+        public static Results Update_NV(NhanVien_DTO nv)
         {
+
             return NhanVien_DAO.Update_NV(nv);
         }
-        public static bool Delete_NV(NhanVien_DTO nv)
+        public static Results Delete_NV(NhanVien_DTO nv)
         {
             return NhanVien_DAO.Delete_NV(nv);
         }
