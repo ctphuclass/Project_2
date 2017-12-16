@@ -197,7 +197,7 @@ namespace QuanLyBanCaPhe
 
             DoanhThu_DTO DT = new DoanhThu_DTO();
             DT.Ten_Ban = comboBox2.Text;
-            DT.Ngay_Hien_Tai = DateTime.Parse(dateTimePicker3.Text);
+            DT.Ngay_Hien_Tai = DateTime.Parse(dateTimePicker3.Text.ToString());
             if (checkBox4.Checked == true)
             {
 
@@ -228,10 +228,10 @@ namespace QuanLyBanCaPhe
                 }
                 textBox1.Text = Convert.ToString(DoanhThu_BUS.TongTien_All2(DT));
             }
-            //if (checkBox1.Checked == false && checkBox2.Checked == false)
-            //{
-            //    MessageBox.Show("Xin Chon Phuong Thuc!");
-            //}
+            if (checkBox3.Checked == false && checkBox4.Checked == false)
+            {
+                MessageBox.Show("Xin Chon Phuong Thuc!");
+            }
         }
 
         private void label5_Click(object sender, EventArgs e)
