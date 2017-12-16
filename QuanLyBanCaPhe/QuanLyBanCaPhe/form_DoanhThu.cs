@@ -48,12 +48,18 @@ namespace QuanLyBanCaPhe
                 dateTimePicker2.Focus();
                 return;
             }
+            if (checkBox1.Checked == true && comboBox1.Text == "")
+            {
+                MessageBox.Show("Xin chọn bàn");
+                return;
+            }
             listView1.Items.Clear();
 
             DoanhThu_DTO dt = new DoanhThu_DTO();
             dt.Ten_Ban = comboBox1.Text;
             dt.Ngay_Dau = DateTime.Parse(dateTimePicker1.Text);
             dt.Ngay_cuoi = DateTime.Parse(dateTimePicker2.Text);
+            dt.Error_First = "Không có Doanh Thu Theo Yêu Cầu";
             if (checkBox1.Checked == true)
             {
                 
@@ -67,7 +73,13 @@ namespace QuanLyBanCaPhe
                     List_item.SubItems.Add(item.Thanh_Tien.ToString());
                     listView1.Items.Add(List_item);
                 }
+                
                 textBox1.Text = Convert.ToString(DoanhThu_BUS.TongTienBan(dt));
+                if (dt.TongThanhTien_First == 0)
+                {
+                    MessageBox.Show("Không có Doanh Thu ngày được chọn");
+                    return;
+                }
             }
             if(checkBox2.Checked == true)
             {
@@ -83,11 +95,16 @@ namespace QuanLyBanCaPhe
                     listView1.Items.Add(List_item);
                 }
                 textBox1.Text = Convert.ToString(DoanhThu_BUS.TongTien_All(dt));
+                if (dt.TongThanhTien == 0)
+                {
+                    MessageBox.Show(dt.Error);
+                }
             }
             if(checkBox1.Checked == false && checkBox2.Checked == false )
             {
                 MessageBox.Show("Xin Chon Phuong Thuc!");
             }
+            
            
         }
 
@@ -198,6 +215,7 @@ namespace QuanLyBanCaPhe
             DoanhThu_DTO DT = new DoanhThu_DTO();
             DT.Ten_Ban = comboBox2.Text;
             DT.Ngay_Hien_Tai = DateTime.Parse(dateTimePicker3.Text.ToString());
+            DT.Error = "Không tìm thấy Doanh thu theo ngay yêu cầu";
             if (checkBox4.Checked == true)
             {
 
@@ -210,8 +228,12 @@ namespace QuanLyBanCaPhe
                     List_item.SubItems.Add(item.Loai.ToString());
                     List_item.SubItems.Add(item.Thanh_Tien.ToString());
                     listView1.Items.Add(List_item);
+                }             
+                    textBox1.Text = Convert.ToString(DoanhThu_BUS.TongTienBan2(DT));
+                if(DT.TongThanhTien == 0)
+                {
+                    MessageBox.Show("Không có Doanh Thu ngày được chọn");
                 }
-                textBox1.Text = Convert.ToString(DoanhThu_BUS.TongTienBan2(DT));
             }
             if (checkBox3.Checked == true)
             {
@@ -225,8 +247,12 @@ namespace QuanLyBanCaPhe
                     List_item.SubItems.Add(item.Loai.ToString());
                     List_item.SubItems.Add(item.Thanh_Tien.ToString());
                     listView1.Items.Add(List_item);
+                }                                
+                    textBox1.Text = Convert.ToString(DoanhThu_BUS.TongTien_All2(DT));
+                if (DT.TongThanhTien == 0)
+                {
+                    MessageBox.Show(DT.Error);
                 }
-                textBox1.Text = Convert.ToString(DoanhThu_BUS.TongTien_All2(DT));
             }
             if (checkBox3.Checked == false && checkBox4.Checked == false)
             {

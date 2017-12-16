@@ -17,7 +17,7 @@ namespace DAO
         {
             try
             {
-                conn = new SqlConnection(@"Data Source=.\SQLEXPRESS;Initial Catalog=QL_Cafe;Integrated Security=True");
+                sprovider = new Provider();
 
                 string Query = "usp_USER_CheckUser @psUsername, @psPassword";
                 conn.Open();

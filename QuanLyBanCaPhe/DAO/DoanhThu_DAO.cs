@@ -53,23 +53,38 @@ namespace DAO
 
         public static int TongTienBan(DoanhThu_DTO DT)
         {
-            string sQuery = string.Format("exec [proc_TongTienBan] @TenBan = '{0}',@NgayDau = '{1}',@NgayCuoi='{2}'", DT.Ten_Ban, DT.Ngay_Dau, DT.Ngay_cuoi);
-            sprovider = new Provider();
-            DataTable dt = sprovider.GetData(sQuery);
-            for(int i=0;i<dt.Rows.Count;i++)
+            try
             {
-                DT.TongThanhTien = Int32.Parse(dt.Rows[0][0].ToString());
+                string sQuery = string.Format("exec [proc_TongTienBan] @TenBan = '{0}',@NgayDau = '{1}',@NgayCuoi='{2}'", DT.Ten_Ban, DT.Ngay_Dau, DT.Ngay_cuoi);
+                sprovider = new Provider();
+                DataTable dt = sprovider.GetData(sQuery);
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    DT.TongThanhTien_First = Int32.Parse(dt.Rows[0][0].ToString());
+                }
+             }           
+            catch (Exception ex)
+            {
+                DT.Error_First = ex.ToString();
             }
-            return DT.TongThanhTien;
+            return DT.TongThanhTien_First;
         }
         public static int TongTienBan2(DoanhThu_DTO DT)
         {
-            string sQuery = string.Format("exec proc_TongTienBan2 @TenBan = '{0}',@NgayHT = '{1}'", DT.Ten_Ban, DT.Ngay_Hien_Tai);
-            sprovider = new Provider();
-            DataTable dt = sprovider.GetData(sQuery);
-            for (int i = 0; i < dt.Rows.Count; i++)
+            try
             {
-                DT.TongThanhTien = int.Parse(dt.Rows[0][0].ToString());
+                string sQuery = string.Format("exec proc_TongTienBan2 @TenBan = '{0}',@NgayHT = '{1}'", DT.Ten_Ban, DT.Ngay_Hien_Tai);
+                sprovider = new Provider();
+                DataTable dt = sprovider.GetData(sQuery);
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    DT.TongThanhTien = int.Parse(dt.Rows[0][0].ToString());
+                }
+                
+            }
+            catch(Exception ex)
+            {
+                DT.Error = ex.ToString();
             }
             return DT.TongThanhTien;
         }

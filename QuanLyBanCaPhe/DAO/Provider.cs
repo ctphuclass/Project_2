@@ -13,7 +13,7 @@ namespace DAO
         SqlConnection conn;
         public Provider()
         {
-            string sQuery = @"Data Source=.\SQLEXPRESS;Initial Catalog=QL_Cafe;Integrated Security=True";
+            string sQuery = @"Data Source=NTDPC\SQLEXPRESS;Initial Catalog=Cafe_New_1;Integrated Security=True";
             conn = new SqlConnection(sQuery);
         }
         

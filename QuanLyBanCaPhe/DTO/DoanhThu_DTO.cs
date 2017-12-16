@@ -17,5 +17,8 @@ namespace DTO
         public DateTime Ngay_cuoi { get; set; }
         public int TongThanhTien { get; set; }
         public DateTime Ngay_Hien_Tai { get; set; }
+        public string Error { get; set; }
+        public int TongThanhTien_First { get; set; }
+        public string Error_First { get; set; }
     }
 }
