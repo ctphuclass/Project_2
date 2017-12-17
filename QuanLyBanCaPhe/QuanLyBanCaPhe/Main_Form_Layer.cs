@@ -15,16 +15,21 @@ namespace QuanLyBanCaPhe
 {
     public partial class Main_Form_Layer : Form
     {
+        int time = 0;
         public Main_Form_Layer()
         {
             InitializeComponent();
             //Main_Form_Layer Main = new Main_Form_Layer();
             //Main.BackColor = Color.FromArgb(236, 135, 14);
-            this.BackColor = Color.FromArgb(240, 230, 140);
-            label1.ForeColor = System.Drawing.ColorTranslator.FromHtml("#F24D16");
-            label2.ForeColor = System.Drawing.ColorTranslator.FromHtml("#F24D16");
-
+            this.BackColor = System.Drawing.ColorTranslator.FromHtml("#BE8B5C");
+            label1.ForeColor = System.Drawing.ColorTranslator.FromHtml("#E91818");
+            label2.ForeColor = System.Drawing.ColorTranslator.FromHtml("#E91818");
             LoadBan();
+            btnClose.Image = Properties.Resources.Close_icon__1_;
+            btnClose.BackColor = System.Drawing.ColorTranslator.FromHtml("#9E5428");
+            btnMinimize.Image = Properties.Resources.minimize_icon__1_;
+            btnMinimize.BackColor = System.Drawing.ColorTranslator.FromHtml("#BFB992");
+            //button1.Image = Properties.Resources.money_icon;
         }
 
         private void Main_Form_Layer_Load(object sender, EventArgs e)
@@ -33,6 +38,7 @@ namespace QuanLyBanCaPhe
             //Main.BackColor = Color.FromArgb(236, 135, 14);
             List<Menu_DTO> Menu = Menu_BUS.List_All_Menu();
             dataGridView1.DataSource = Menu;
+            timer1.Start();
         }
         public void LoadBan()
         {
@@ -97,50 +103,57 @@ namespace QuanLyBanCaPhe
             listView1.Tag = (sender as Button).Tag;
             ShowThongTin_Ban(Ma_Ban);
         }
-        private void dataGridView1_Click(object sender, EventArgs e)
-        {
-            Ban_DTO Table = listView1.Tag as Ban_DTO;
-            int MaHD = HoaDon_BUS.KTHoaDon(Table.Ma_Ban);
+        //private void dataGridView1_Click(object sender, EventArgs e)
+        //{
+        //    Ban_DTO Table = listView1.Tag as Ban_DTO;
+        //    int MaHD = HoaDon_BUS.KTHoaDon(Table.Ma_Ban);
 
-            DataGridViewRow dgvr = dataGridView1.CurrentRow;
+        //    DataGridViewRow dgvr = dataGridView1.CurrentRow;
 
-            string MaSP = dgvr.Cells["MaSP"].Value.ToString();
-            string TenSP = dgvr.Cells["TenSP"].Value.ToString();
-            int SL = 1;
-            if (MaHD == -1)
-            {
-                HoaDon_BUS.InsertHoaDon(Table.Ma_Ban);
-                int Ma_HDD = ChiTietHD_DAO.GetMaHD();
-                ChiTietHoaDon_BUS.InsertChiTietHoaDon(Ma_HDD, MaSP, TenSP, SL);
-                MessageBox.Show("Them mon thanh cong 1!");
-            }
-            else
-            {
-                ChiTietHoaDon_BUS.InsertChiTietHoaDon(MaHD, MaSP, TenSP, SL);
-                MessageBox.Show("Them mon thanh cong 2!");
-            }
-            ShowThongTin_Ban(Table.Ma_Ban);
-            LoadBan();
+        //    string MaSP = dgvr.Cells["MaSP"].Value.ToString();
+        //    string TenSP = dgvr.Cells["TenSP"].Value.ToString();
+        //    int SL = 1;
+        //    if (MaHD == -1)
+        //    {
+        //        HoaDon_BUS.InsertHoaDon(Table.Ma_Ban);
+        //        int Ma_HDD = ChiTietHD_DAO.GetMaHD();
+        //        ChiTietHoaDon_BUS.InsertChiTietHoaDon(Ma_HDD, MaSP, TenSP, SL);
+        //        MessageBox.Show("Them mon thanh cong 1!");
+        //    }
+        //    else
+        //    {
+        //        ChiTietHoaDon_BUS.InsertChiTietHoaDon(MaHD, MaSP, TenSP, SL);
+        //        MessageBox.Show("Them mon thanh cong 2!");
+        //    }
+        //    ShowThongTin_Ban(Table.Ma_Ban);
+        //    LoadBan();
 
-            //HoaDon_DTO HD = new HoaDon_DTO();
-            //if (HoaDon_BUS.InsertHoaDon(HD) == true)
-            //    MessageBox.Show("Them HD thanh cong");
-            //else
-            //    MessageBox.Show("Them Hd that bai");
-            //InsertCTHD();
-        }
+        //    //HoaDon_DTO HD = new HoaDon_DTO();
+        //    //if (HoaDon_BUS.InsertHoaDon(HD) == true)
+        //    //    MessageBox.Show("Them HD thanh cong");
+        //    //else
+        //    //    MessageBox.Show("Them Hd that bai");
+        //    //InsertCTHD();
+        //}
 
         private void button1_Click(object sender, EventArgs e)
         {
             Ban_DTO Table = listView1.Tag as Ban_DTO;
             int MaHD = HoaDon_BUS.KTHoaDon(Table.Ma_Ban);
-            PrintHD(listView1);
-            if (MaHD != 1)
+                if (MaHD != -1)
+                {
+                    PrintHD(listView1);
+                    HoaDon_BUS.TinhTien(MaHD);
+                    ShowThongTin_Ban(Table.Ma_Ban);
+                    LoadBan();
+                }
+            else
             {
-                HoaDon_BUS.TinhTien(MaHD);
-                ShowThongTin_Ban(Table.Ma_Ban);
-                LoadBan();
+                MessageBox.Show("Không có danh mục thu tiền!");
+                return;
             }
+            
+            
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -168,7 +181,7 @@ namespace QuanLyBanCaPhe
                 else
                 {
                     ChiTietHoaDon_BUS.InsertChiTietHoaDon(MaHD, MaSP, TenSP, SL);
-                    MessageBox.Show("Cộng món thành công!");
+                    MessageBox.Show("Thêm món thành công!");
                 }
                 ShowThongTin_Ban(Table.Ma_Ban);
                 LoadBan();
@@ -226,6 +239,59 @@ namespace QuanLyBanCaPhe
                     }
                 }
             }
+            else
+            {
+                return;
+            }
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            DialogResult i = MessageBox.Show("Do you really want exit?", "Information", MessageBoxButtons.YesNo);
+            if (i == DialogResult.Yes)
+                this.Close();
+            else
+                return;
+        }
+
+        private void btnMinimize_Click_1(object sender, EventArgs e)
+        {
+            if (WindowState == FormWindowState.Normal)
+            {
+                WindowState = FormWindowState.Minimized;
+            }
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            Main_Form_Layer m = new Main_Form_Layer();
+            label3.Location = new Point(label3.Location.X + 5, label3.Location.Y);
+            if(label3.Location.X > 580)
+            {
+                label3.Location = new Point(470 - label3.Width, label3.Location.Y);
+            }
+            if (time == 0)
+            {
+                label3.ForeColor = System.Drawing.ColorTranslator.FromHtml("#D3EBB2");
+                timer1.Interval = 200;
+                time = 4;
+            }
+            //if(time == 2)
+            //{
+            //    label3.ForeColor = System.Drawing.ColorTranslator.FromHtml("#FF8B55");
+            //    time = 4;
+            //}
+            else
+            {
+                label3.ForeColor = System.Drawing.ColorTranslator.FromHtml("#FADAA3");
+                time = 0;
+            }
+        }
+
+        
+        private void timer2_Tick(object sender, EventArgs e)
+        {           
+            
         }
     }
 }

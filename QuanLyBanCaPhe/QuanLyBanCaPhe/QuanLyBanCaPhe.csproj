@@ -150,6 +150,15 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="abcd.sql" />
+    <None Include="Resources\c3.jpg" />
+    <None Include="Resources\c2.jpg" />
+    <None Include="Resources\c1.jpg" />
+    <None Include="Resources\money-icon.png" />
+    <None Include="Resources\minimize-icon %281%29.png" />
+    <None Include="Resources\minimize-icon.png" />
+    <None Include="Resources\Close-icon %281%29.png" />
+    <None Include="Resources\Close-icon.png" />
+    <None Include="Resources\Image1.bmp" />
     <None Include="Resources\caphe.gif" />
     <None Include="Resources\load_icon.png" />
     <None Include="Resources\delete_icon.png" />

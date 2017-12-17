@@ -12,9 +12,12 @@ namespace QuanLyBanCaPhe
 {
     public partial class from_DieuHuong : Form
     {
+        int count = 0;
+        int time = 0;
         public from_DieuHuong()
         {
             InitializeComponent();
+            
         }
 
         private void bánHàngToolStripMenuItem_Click(object sender, EventArgs e)
@@ -45,6 +48,84 @@ namespace QuanLyBanCaPhe
         {
             form_Ban Ban = new form_Ban();
             Ban.ShowDialog();
+        }
+
+        private void from_DieuHuong_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.Control == true && e.KeyCode == Keys.B)
+            {
+                bánHàngToolStripMenuItem.PerformClick();
+            }
+            if (e.Control == true && e.KeyCode == Keys.Q)
+            {
+                quảnLíToolStripMenuItem.ShowDropDown();
+            }
+            if (e.Control == true && e.KeyCode == Keys.D)
+            {
+                doanhThuToolStripMenuItem.PerformClick();
+            }
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            
+            if(count ==0)
+            {
+                this.BackgroundImage = Properties.Resources.caphe;
+                count = 2;
+                timer1.Interval = 1500;
+            }
+            else
+            {
+                if (count == 2)
+                {
+                    this.BackgroundImage = Properties.Resources.c1;
+                    count = 3;
+                    timer1.Interval = 1500;
+                }
+                else
+                {
+                    if(count == 3)
+                    {
+                        this.BackgroundImage = Properties.Resources.c2;
+                        count = 4;
+                        timer1.Interval = 1500;
+                    }
+                    else
+                    {
+                        this.BackgroundImage = Properties.Resources.c3;
+                        count = 0;
+                        timer1.Interval = 1500;
+                    }
+                    
+                }
+
+            }
+
+
+        }
+
+        private void from_DieuHuong_Load(object sender, EventArgs e)
+        {
+            timer1.Start();
+            timer2.Start();
+        }
+
+        private void timer2_Tick(object sender, EventArgs e)
+        {
+            if(time == 0)
+            {
+                label2.Text = "Lê Văn Pháp";
+                time = 1;
+                timer2.Interval = 400;
+            }
+            else
+            {
+                label2.Text = "Nguyễn Thành Đạt";
+                time = 0;
+                timer2.Interval = 400;
+            }
+
         }
     }
 }
