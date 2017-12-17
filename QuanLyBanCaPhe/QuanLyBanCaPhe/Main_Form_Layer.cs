@@ -39,6 +39,7 @@ namespace QuanLyBanCaPhe
             List<Menu_DTO> Menu = Menu_BUS.List_All_Menu();
             dataGridView1.DataSource = Menu;
             timer1.Start();
+            flp1.AutoScroll = true;
         }
         public void LoadBan()
         {

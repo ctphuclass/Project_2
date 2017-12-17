@@ -28,78 +28,69 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.TBMaNV = new System.Windows.Forms.TextBox();
             this.TBMK = new System.Windows.Forms.TextBox();
             this.BTDangNhap = new System.Windows.Forms.Button();
-            this.BTThoat = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(34, 33);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(75, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Mã Nhân Viên";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(34, 94);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(53, 13);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Mật Khẩu";
             // 
             // TBMaNV
             // 
-            this.TBMaNV.Location = new System.Drawing.Point(135, 30);
+            this.TBMaNV.Location = new System.Drawing.Point(160, 12);
             this.TBMaNV.Name = "TBMaNV";
-            this.TBMaNV.Size = new System.Drawing.Size(100, 20);
+            this.TBMaNV.Size = new System.Drawing.Size(164, 20);
             this.TBMaNV.TabIndex = 2;
             // 
             // TBMK
             // 
-            this.TBMK.Location = new System.Drawing.Point(135, 91);
+            this.TBMK.Location = new System.Drawing.Point(160, 49);
             this.TBMK.Name = "TBMK";
-            this.TBMK.Size = new System.Drawing.Size(100, 20);
+            this.TBMK.Size = new System.Drawing.Size(164, 20);
             this.TBMK.TabIndex = 3;
             this.TBMK.UseSystemPasswordChar = true;
             // 
             // BTDangNhap
             // 
-            this.BTDangNhap.Location = new System.Drawing.Point(37, 150);
+            this.BTDangNhap.Location = new System.Drawing.Point(47, 79);
             this.BTDangNhap.Name = "BTDangNhap";
-            this.BTDangNhap.Size = new System.Drawing.Size(75, 23);
+            this.BTDangNhap.Size = new System.Drawing.Size(78, 43);
             this.BTDangNhap.TabIndex = 4;
-            this.BTDangNhap.Text = "Đăng Nhập";
+            this.BTDangNhap.Text = "LOGIN";
             this.BTDangNhap.UseVisualStyleBackColor = true;
             this.BTDangNhap.Click += new System.EventHandler(this.BTDangNhap_Click_1);
             // 
-            // BTThoat
+            // label1
             // 
-            this.BTThoat.Location = new System.Drawing.Point(160, 150);
-            this.BTThoat.Name = "BTThoat";
-            this.BTThoat.Size = new System.Drawing.Size(75, 23);
-            this.BTThoat.TabIndex = 5;
-            this.BTThoat.Text = "Thoát";
-            this.BTThoat.UseVisualStyleBackColor = true;
-            this.BTThoat.Click += new System.EventHandler(this.BTThoat_Click);
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(44, 13);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(97, 17);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "Mã Nhân Viên";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(44, 50);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(68, 17);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "Mật Khẩu";
             // 
             // frmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(276, 200);
-            this.Controls.Add(this.BTThoat);
+            this.ClientSize = new System.Drawing.Size(434, 331);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.BTDangNhap);
             this.Controls.Add(this.TBMK);
             this.Controls.Add(this.TBMaNV);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "frmLogin";
             this.Text = "frmLogin";
             this.ResumeLayout(false);
@@ -108,12 +99,10 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox TBMaNV;
         private System.Windows.Forms.TextBox TBMK;
         private System.Windows.Forms.Button BTDangNhap;
-        private System.Windows.Forms.Button BTThoat;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
     }
 }

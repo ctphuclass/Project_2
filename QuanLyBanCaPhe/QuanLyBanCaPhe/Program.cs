@@ -16,7 +16,7 @@ namespace QuanLyBanCaPhe
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new from_DieuHuong());
+            Application.Run(new frmLogin());
         }
     }
 }

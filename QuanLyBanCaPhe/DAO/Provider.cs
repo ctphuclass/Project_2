@@ -16,6 +16,12 @@ namespace DAO
             string sQuery = @"Data Source=NTDPC\SQLEXPRESS;Initial Catalog=Cafe_New_1;Integrated Security=True";
             conn = new SqlConnection(sQuery);
         }
+        public static SqlConnection Connect()
+        {
+            string sQuery = @"Data Source=NTDPC\SQLEXPRESS;Initial Catalog=Cafe_New_1;Integrated Security=True";
+            SqlConnection con = new SqlConnection(sQuery);
+            return con;
+        }
         
         public DataTable GetData(string sQuery)
         {

@@ -17,6 +17,6 @@ namespace DTO
         public DateTime NgaySinh { get; set; }
         public string ChucVu { get; set; }
         public DateTime NgayVaoLam { get; set; }
-        public int Luong { get; set; }
+        public int? Luong { get; set; }
     }
 }

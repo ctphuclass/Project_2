@@ -98,8 +98,7 @@ namespace DAO
             try
             {
                 //string sQuery = string.Format("exec proc_UpdateNV @TenNV=N'{0}',@GT='{1}',@DiaChi=N'{2}',@SDT='{3}',@Email='{4}',@Ngay_Sinh ='{5}',@Chuc_Vu=N'{6}',@NVL='{7}',@Luong={8},@MaNV='{9}'", nv.TenNV, nv.GioiTinh, nv.DiaChi, nv.SDT, nv.Email, nv.NgaySinh, nv.ChucVu, nv.NgayVaoLam, nv.Luong, nv.MaNV);
-                string sQuery = @"Data Source=.\SQLEXPRESS;Initial Catalog=QL_Cafe;Integrated Security=True";
-                conn = new SqlConnection(sQuery);
+                conn = Provider.Connect();
                 SqlCommand cmd = new SqlCommand("proc_UpdateMENU", conn);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@Ma_SP", Menu_DTO.MaSP);
@@ -130,8 +129,7 @@ namespace DAO
             Results re = new Results();
             try
             {
-                string sQuery = @"Data Source=.\SQLEXPRESS;Initial Catalog=QL_Cafe;Integrated Security=True";
-                conn = new SqlConnection(sQuery);
+                conn = Provider.Connect();
                 SqlCommand cmd = new SqlCommand("proc_XoaMENU", conn);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@psMaSP", Menu_DTO.MaSP);

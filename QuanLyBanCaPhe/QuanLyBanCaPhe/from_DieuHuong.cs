@@ -127,5 +127,12 @@ namespace QuanLyBanCaPhe
             }
 
         }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            frmLogin lo = new frmLogin();
+            lo.Show();
+            this.Hide();
+        }
     }
 }

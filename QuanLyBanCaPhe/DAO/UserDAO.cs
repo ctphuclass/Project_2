@@ -17,11 +17,12 @@ namespace DAO
         {
             try
             {
-                sprovider = new Provider();
+
+                //conn = new SqlConnection(@"Data Source=NTDPC\SQLEXPRESS;Initial Catalog=Cafe_New_1;Integrated Security=True");
 
                 string Query = "usp_USER_CheckUser @psUsername, @psPassword";
+                conn = Provider.Connect();
                 conn.Open();
-                //sprovider = new Provider();
                 SqlCommand cmd = new SqlCommand(Query, conn);
 
                 SqlParameter User = new SqlParameter("@psUsername", SqlDbType.Char);
@@ -41,9 +42,14 @@ namespace DAO
                 }
                 return true;
             }
-            catch
+            catch(Exception ex)
             {
+                throw;
                 return false;
+            }
+            finally
+            {
+                conn.Close();
             }
         }
     }

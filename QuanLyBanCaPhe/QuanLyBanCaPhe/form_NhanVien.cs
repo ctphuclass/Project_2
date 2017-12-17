@@ -120,7 +120,7 @@ namespace QuanLyBanCaPhe
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            if (tbxMaNV.Text == "" || tbxTenNV.Text == "")
+            if (tbxMaNV.Text == "" || tbxTenNV.Text == "" || tbxLuong.Text == "")
             {
                 MessageBox.Show("Vui lòng nhập thông tin!");
             }
@@ -129,9 +129,32 @@ namespace QuanLyBanCaPhe
             nv.MaNV = tbxMaNV.Text;
             nv.TenNV = tbxTenNV.Text;
             nv.GioiTinh = tbxGT.Text;
-            nv.Luong = Int32.Parse(tbxLuong.Text);
-            nv.NgaySinh = DateTime.Parse(tbxNgaySinh.Text);
-            nv.NgayVaoLam = DateTime.Parse(tbxNgayVaoLam.Text);
+            if (tbxLuong.Text == "")
+            {
+                nv.Luong = 0;
+            }
+            else
+            {
+                nv.Luong = Int32.Parse(tbxLuong.Text);
+            } 
+            if(tbxNgaySinh.Text == "")
+            {
+                nv.NgaySinh = DateTime.Parse("1990/01/01");
+            }
+            else
+            {
+                nv.NgaySinh = DateTime.Parse(tbxNgaySinh.Text);
+            }
+            if (tbxNgayVaoLam.Text == "")
+            {
+                nv.NgayVaoLam = DateTime.Parse("1990/01/01");
+            }
+            else
+            {
+                nv.NgayVaoLam = DateTime.Parse(tbxNgayVaoLam.Text);
+            }
+
+            
             nv.SDT = tbxSDT.Text;
             nv.DiaChi = tbxDC.Text;
             nv.ChucVu = tbxChucVu.Text;

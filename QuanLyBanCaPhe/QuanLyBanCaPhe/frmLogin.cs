@@ -16,6 +16,7 @@ namespace QuanLyBanCaPhe
         public frmLogin()
         {
             InitializeComponent();
+            this.BackgroundImage = Properties.Resources.logo1;
         }
 
         private void BTDangNhap_Click_1(object sender, EventArgs e)
@@ -25,7 +26,7 @@ namespace QuanLyBanCaPhe
             User.pass = TBMK.Text;
             if (UserBUS.CheckUser(User) == true)
             {
-                MessageBox.Show("dang nhap thanh cong!");
+                MessageBox.Show("Đăng nhập thành công!");
                 from_DieuHuong dh = new from_DieuHuong();
                 if (User.chucvu == "NhanVien")
                 {
@@ -37,7 +38,7 @@ namespace QuanLyBanCaPhe
 
             }
             else
-                MessageBox.Show("dang nhap that bai , vui ong thu lai sau!");
+                MessageBox.Show("Đăng nhập thất bại!");
         }
 
         private void BTThoat_Click(object sender, EventArgs e)

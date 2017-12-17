@@ -150,6 +150,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="abcd.sql" />
+    <None Include="Resources\logo1.jpg" />
     <None Include="Resources\c3.jpg" />
     <None Include="Resources\c2.jpg" />
     <None Include="Resources\c1.jpg" />
