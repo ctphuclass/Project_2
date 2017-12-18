@@ -38,7 +38,13 @@ namespace QuanLyBanCaPhe
                 tbxTenNV.Text = item.TenNV;
                 tbxChucVu.Text = item.Chucvu;
             }
-       }
+            if(tbxChucVu.Text == "NhanVien")
+            {
+                textBox1.Enabled = false;
+                textBox2.Enabled = false;
+                button1.Enabled = false;
+            }
+        }
 
         private void btnOK_Click(object sender, EventArgs e)
         {

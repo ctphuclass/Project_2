@@ -40,14 +40,14 @@
             this.TBMaNV.Location = new System.Drawing.Point(160, 12);
             this.TBMaNV.Name = "TBMaNV";
             this.TBMaNV.Size = new System.Drawing.Size(164, 20);
-            this.TBMaNV.TabIndex = 2;
+            this.TBMaNV.TabIndex = 0;
             // 
             // TBMK
             // 
             this.TBMK.Location = new System.Drawing.Point(160, 49);
             this.TBMK.Name = "TBMK";
             this.TBMK.Size = new System.Drawing.Size(164, 20);
-            this.TBMK.TabIndex = 3;
+            this.TBMK.TabIndex = 1;
             this.TBMK.UseSystemPasswordChar = true;
             // 
             // BTDangNhap
@@ -55,7 +55,7 @@
             this.BTDangNhap.Location = new System.Drawing.Point(47, 79);
             this.BTDangNhap.Name = "BTDangNhap";
             this.BTDangNhap.Size = new System.Drawing.Size(78, 43);
-            this.BTDangNhap.TabIndex = 4;
+            this.BTDangNhap.TabIndex = 2;
             this.BTDangNhap.Text = "LOGIN";
             this.BTDangNhap.UseVisualStyleBackColor = true;
             this.BTDangNhap.Click += new System.EventHandler(this.BTDangNhap_Click_1);
@@ -86,6 +86,7 @@
             // 
             // frmLogin
             // 
+            this.AcceptButton = this.BTDangNhap;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(434, 331);
@@ -96,7 +97,8 @@
             this.Controls.Add(this.TBMaNV);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "frmLogin";
-            this.Text = "frmLogin";
+            this.Text = "Đăng Nhập";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmLogin_FormClosing);
             this.Load += new System.EventHandler(this.frmLogin_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

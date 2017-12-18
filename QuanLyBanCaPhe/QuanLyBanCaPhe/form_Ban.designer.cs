@@ -205,8 +205,9 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "form_Ban";
-            this.Text = "form_Ban";
+            this.Text = "Bàn";
             this.Load += new System.EventHandler(this.form_Ban_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dtgvBan)).EndInit();
             this.ResumeLayout(false);

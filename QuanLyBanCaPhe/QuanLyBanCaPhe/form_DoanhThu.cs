@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DTO;
 using BUS;
+using Microsoft.Office.Interop.Excel;
 
 namespace QuanLyBanCaPhe
 {
@@ -119,25 +120,54 @@ namespace QuanLyBanCaPhe
         }
         private void Printfile(ListView lv)
         {
-            string filename = "";
-            SaveFileDialog Save = new SaveFileDialog();
-            Save.Title = "In Thống Kê Doanh Thu";
-            Save.Filter = "Text File (.txt)|*.txt";
-            if(Save.ShowDialog() == DialogResult.OK)
+            //string filename = "";
+            //SaveFileDialog Save = new SaveFileDialog();
+            //Save.Title = "In Thống Kê Doanh Thu";
+            //Save.Filter = "Text File (.txt)|*.txt";
+            //if(Save.ShowDialog() == DialogResult.OK)
+            //{
+            //    filename = Save.FileName.ToString();
+            //    if(filename != "")
+            //    {
+            //        using (System.IO.StreamWriter sw = new System.IO.StreamWriter(filename))
+            //        {
+            //            sw.WriteLine("Thông tin chi tiết doanh thu từ ngày:{0} đến ngày: {1}", dateTimePicker1.Text, dateTimePicker2.Text);
+            //            sw.WriteLine("Bàn số : {0}", comboBox1.Text);
+            //            foreach (ListViewItem item in lv.Items)
+            //            {
+            //                sw.WriteLine("{0} {1} {2} {3} {4}", item.SubItems[0].Text, item.SubItems[1].Text, item.SubItems[2].Text, item.SubItems[3].Text, item.SubItems[4].Text);
+            //            }
+            //            sw.WriteLine("Tong tien la: {0}",textBox1.Text);
+            //        }
+            //    }
+            //}
+            using (SaveFileDialog sfd = new SaveFileDialog() { Filter = "Excel Wordnook|*.xls", ValidateNames = true })
             {
-                filename = Save.FileName.ToString();
-                if(filename != "")
+                if(sfd.ShowDialog()==DialogResult.OK)
                 {
-                    using (System.IO.StreamWriter sw = new System.IO.StreamWriter(filename))
+                    Microsoft.Office.Interop.Excel.Application app = new Microsoft.Office.Interop.Excel.Application();
+                    Workbook wb = app.Workbooks.Add(XlSheetType.xlWorksheet);
+                    Worksheet ws = (Worksheet)app.ActiveSheet;
+                    app.Visible = false;
+                    ws.Cells[1, 1] = "Ten Ban";
+                    ws.Cells[1, 2] = "Ngay Lap";
+                    ws.Cells[1, 3] = "Ten SP";
+                    ws.Cells[1, 4] = "Loai SP";
+                    ws.Cells[1, 5] = "Thanh Tien";
+
+                    int i = 2;
+                    foreach(ListViewItem item in listView1.Items)
                     {
-                        sw.WriteLine("Thông tin chi tiết doanh thu từ ngày:{0} đến ngày: {1}", dateTimePicker1.Text, dateTimePicker2.Text);
-                        sw.WriteLine("Bàn số : {0}", comboBox1.Text);
-                        foreach (ListViewItem item in lv.Items)
-                        {
-                            sw.WriteLine("{0} {1} {2} {3} {4}", item.SubItems[0].Text, item.SubItems[1].Text, item.SubItems[2].Text, item.SubItems[3].Text, item.SubItems[4].Text);
-                        }
-                        sw.WriteLine("Tong tien la: {0}",textBox1.Text);
+                        ws.Cells[1, 1] = item.SubItems[0].Text;
+                        ws.Cells[1, 2] = item.SubItems[1].Text;
+                        ws.Cells[1, 3] = item.SubItems[2].Text;
+                        ws.Cells[1, 4] = item.SubItems[3].Text;
+                        ws.Cells[1, 5] = item.SubItems[4].Text;
+                        i++;
                     }
+                    wb.SaveAs(sfd.FileName, XlFileFormat.xlWorkbookDefault, Type.Missing,Type.Missing, true, false, XlSaveAsAccessMode.xlNoChange, XlSaveConflictResolution.xlLocalSessionChanges, Type.Missing, Type.Missing);
+                    app.Quit();
+                    MessageBox.Show("Impot Success!");
                 }
             }
         }

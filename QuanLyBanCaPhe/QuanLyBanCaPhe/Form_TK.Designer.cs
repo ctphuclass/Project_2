@@ -32,7 +32,6 @@
             this.btnOK = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tbxMKNew = new System.Windows.Forms.TextBox();
             this.tbxChucVu = new System.Windows.Forms.TextBox();
             this.tbxTenNV = new System.Windows.Forms.TextBox();
@@ -43,11 +42,12 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.button1 = new System.Windows.Forms.Button();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -105,25 +105,11 @@
             this.tabPage1.Text = "Thay Đổi Mật Khẩu";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // tabPage2
-            // 
-            this.tabPage2.Controls.Add(this.button1);
-            this.tabPage2.Controls.Add(this.textBox2);
-            this.tabPage2.Controls.Add(this.textBox1);
-            this.tabPage2.Controls.Add(this.label8);
-            this.tabPage2.Controls.Add(this.label7);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(386, 249);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Tạo Tài Khoản";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
             // tbxMKNew
             // 
             this.tbxMKNew.Location = new System.Drawing.Point(132, 97);
             this.tbxMKNew.Name = "tbxMKNew";
+            this.tbxMKNew.PasswordChar = '•';
             this.tbxMKNew.Size = new System.Drawing.Size(214, 20);
             this.tbxMKNew.TabIndex = 14;
             // 
@@ -145,6 +131,7 @@
             // 
             this.tbxMKOld.Location = new System.Drawing.Point(132, 63);
             this.tbxMKOld.Name = "tbxMKOld";
+            this.tbxMKOld.PasswordChar = '•';
             this.tbxMKOld.Size = new System.Drawing.Size(215, 20);
             this.tbxMKOld.TabIndex = 12;
             // 
@@ -200,37 +187,20 @@
             this.label2.TabIndex = 9;
             this.label2.Text = "Mã Nhân Viên";
             // 
-            // label7
+            // tabPage2
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(30, 36);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(75, 13);
-            this.label7.TabIndex = 0;
-            this.label7.Text = "Mã Nhân Viên";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(30, 71);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(53, 13);
-            this.label8.TabIndex = 0;
-            this.label8.Text = "Password";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(128, 33);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(215, 20);
-            this.textBox1.TabIndex = 0;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(128, 68);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(215, 20);
-            this.textBox2.TabIndex = 1;
+            this.tabPage2.Controls.Add(this.button1);
+            this.tabPage2.Controls.Add(this.textBox2);
+            this.tabPage2.Controls.Add(this.textBox1);
+            this.tabPage2.Controls.Add(this.label8);
+            this.tabPage2.Controls.Add(this.label7);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(386, 249);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Tạo Tài Khoản";
+            this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // button1
             // 
@@ -241,6 +211,39 @@
             this.button1.Text = "Tạo Tài Khoản";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(128, 68);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.PasswordChar = '•';
+            this.textBox2.Size = new System.Drawing.Size(215, 20);
+            this.textBox2.TabIndex = 1;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(128, 33);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(215, 20);
+            this.textBox1.TabIndex = 0;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(30, 71);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(53, 13);
+            this.label8.TabIndex = 0;
+            this.label8.Text = "Password";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(30, 36);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(75, 13);
+            this.label7.TabIndex = 0;
+            this.label7.Text = "Mã Nhân Viên";
             // 
             // Form_TK
             // 
@@ -266,7 +269,6 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnOK;
-        private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TextBox tbxMKNew;
         private System.Windows.Forms.TextBox tbxChucVu;
@@ -278,11 +280,12 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
+        public System.Windows.Forms.TabPage tabPage2;
+        public System.Windows.Forms.TabControl tabControl1;
+        public System.Windows.Forms.Button button1;
+        public System.Windows.Forms.TextBox textBox2;
+        public System.Windows.Forms.TextBox textBox1;
     }
 }

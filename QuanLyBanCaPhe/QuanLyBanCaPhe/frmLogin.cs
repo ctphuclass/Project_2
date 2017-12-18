@@ -29,10 +29,14 @@ namespace QuanLyBanCaPhe
                 TaiKhoan_BUS.SAve_dt = TBMaNV.Text;
                 MessageBox.Show("Đăng nhập thành công!");
                 from_DieuHuong dh = new from_DieuHuong();
+                Form_TK tk = new Form_TK();
                 if (User.chucvu == "NhanVien")
                 {
                     dh.quảnLíToolStripMenuItem.Enabled = false;
                     dh.doanhThuToolStripMenuItem.Enabled = false;
+                    tk.textBox1.Enabled = false;
+                    tk.textBox2.Enabled = false;
+                    tk.button1.Enabled = false;
                 }
                 this.Hide();
                 dh.ShowDialog();
@@ -51,6 +55,14 @@ namespace QuanLyBanCaPhe
         private void frmLogin_Load(object sender, EventArgs e)
         {
            
+        }
+
+        private void frmLogin_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (MessageBox.Show("Bạn có thật sự muốn thoát không ?", "Cảnh báo", MessageBoxButtons.OKCancel) == DialogResult.Cancel)
+            {
+                e.Cancel = true;
+            }
         }
     }
 }

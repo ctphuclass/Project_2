@@ -36,13 +36,13 @@
             this.quảnLíBànToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.quảnLíMenuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.doanhThuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tàiKhoảnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
-            this.tàiKhoảnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -104,6 +104,13 @@
             this.doanhThuToolStripMenuItem.Text = "Doanh Thu (Ctrl + D)";
             this.doanhThuToolStripMenuItem.Click += new System.EventHandler(this.doanhThuToolStripMenuItem_Click);
             // 
+            // tàiKhoảnToolStripMenuItem
+            // 
+            this.tàiKhoảnToolStripMenuItem.Name = "tàiKhoảnToolStripMenuItem";
+            this.tàiKhoảnToolStripMenuItem.Size = new System.Drawing.Size(123, 20);
+            this.tàiKhoảnToolStripMenuItem.Text = "Tài Khoản (Crtl + T)";
+            this.tàiKhoảnToolStripMenuItem.Click += new System.EventHandler(this.tàiKhoảnToolStripMenuItem_Click);
+            // 
             // timer1
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
@@ -150,13 +157,6 @@
             this.linkLabel1.Text = "Log-Out";
             this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
-            // tàiKhoảnToolStripMenuItem
-            // 
-            this.tàiKhoảnToolStripMenuItem.Name = "tàiKhoảnToolStripMenuItem";
-            this.tàiKhoảnToolStripMenuItem.Size = new System.Drawing.Size(72, 20);
-            this.tàiKhoảnToolStripMenuItem.Text = "Tài Khoản";
-            this.tàiKhoảnToolStripMenuItem.Click += new System.EventHandler(this.tàiKhoảnToolStripMenuItem_Click);
-            // 
             // from_DieuHuong
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -172,7 +172,9 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "from_DieuHuong";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Lựa Chọn";
+            this.Text = "Bảng Lựa Chọn";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.from_DieuHuong_FormClosing);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.from_DieuHuong_FormClosed);
             this.Load += new System.EventHandler(this.from_DieuHuong_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.from_DieuHuong_KeyDown);
             this.menuStrip1.ResumeLayout(false);

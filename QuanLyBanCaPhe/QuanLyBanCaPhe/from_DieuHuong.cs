@@ -64,6 +64,10 @@ namespace QuanLyBanCaPhe
             {
                 doanhThuToolStripMenuItem.PerformClick();
             }
+            if(e.Control == true && e.KeyCode == Keys.T)
+            {
+                tàiKhoảnToolStripMenuItem.PerformClick();
+            }
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -130,15 +134,35 @@ namespace QuanLyBanCaPhe
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
+            this.Events.Dispose();
             frmLogin lo = new frmLogin();
             lo.Show();
             this.Hide();
+            
         }
 
         private void tàiKhoảnToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Form_TK tk = new Form_TK();
             tk.ShowDialog();
+            
+        }
+
+        private void from_DieuHuong_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (MessageBox.Show("Bạn có thật sự muốn thoát không ?", "Cảnh báo", MessageBoxButtons.OKCancel) == DialogResult.Cancel)
+            {
+                e.Cancel = true;                
+            }
+               
+        }
+
+        private void from_DieuHuong_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            frmLogin lo = new frmLogin();
+            lo.Dispose();
+            lo.Close();
+
         }
     }
 }

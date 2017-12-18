@@ -385,6 +385,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "form_NhanVien";
             this.Text = "Quản Lí Thông Tin Nhân Viên";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
