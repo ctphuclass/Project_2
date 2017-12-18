@@ -92,3 +92,4 @@ C:\Users\Nguyen Thanh Dat\Source\Repos\Project_22\QuanLyBanCaPhe\QuanLyBanCaPhe\
 C:\Users\Nguyen Thanh Dat\Source\Repos\Project_22\QuanLyBanCaPhe\QuanLyBanCaPhe\obj\Debug\QuanLyBanCaPhe.Main_Form_Layer.resources
 C:\Users\Nguyen Thanh Dat\Source\Repos\Project_22\QuanLyBanCaPhe\QuanLyBanCaPhe\obj\Debug\QuanLyBanCaPhe.Properties.Resources.resources
 C:\Users\Nguyen Thanh Dat\Source\Repos\Project_22\QuanLyBanCaPhe\QuanLyBanCaPhe\obj\Debug\QuanLyBanCaPhe.csproj.GenerateResource.Cache
+C:\Users\Nguyen Thanh Dat\Source\Repos\Project_22\QuanLyBanCaPhe\QuanLyBanCaPhe\obj\Debug\QuanLyBanCaPhe.Form_TK.resources

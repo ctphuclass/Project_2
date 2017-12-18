@@ -26,6 +26,7 @@ namespace QuanLyBanCaPhe
             User.pass = TBMK.Text;
             if (UserBUS.CheckUser(User) == true)
             {
+                TaiKhoan_BUS.SAve_dt = TBMaNV.Text;
                 MessageBox.Show("Đăng nhập thành công!");
                 from_DieuHuong dh = new from_DieuHuong();
                 if (User.chucvu == "NhanVien")
@@ -39,11 +40,17 @@ namespace QuanLyBanCaPhe
             }
             else
                 MessageBox.Show("Đăng nhập thất bại!");
+          
         }
 
         private void BTThoat_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void frmLogin_Load(object sender, EventArgs e)
+        {
+           
         }
     }
 }

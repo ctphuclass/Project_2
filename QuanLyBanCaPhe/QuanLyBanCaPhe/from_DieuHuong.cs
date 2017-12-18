@@ -134,5 +134,11 @@ namespace QuanLyBanCaPhe
             lo.Show();
             this.Hide();
         }
+
+        private void tàiKhoảnToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form_TK tk = new Form_TK();
+            tk.ShowDialog();
+        }
     }
 }
