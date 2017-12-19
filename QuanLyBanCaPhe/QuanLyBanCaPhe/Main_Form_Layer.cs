@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.Office.Interop.Excel;
 using DTO;
 using DAO;
 using BUS;
@@ -48,7 +49,7 @@ namespace QuanLyBanCaPhe
 
             foreach (Ban_DTO item in ListBan)
             {
-                Button btn = new Button()
+                System.Windows.Forms.Button btn = new System.Windows.Forms.Button()
                 {
                     Width = Ban_BUS.tablewidth,
                     Height = Ban_BUS.tableheight
@@ -99,9 +100,9 @@ namespace QuanLyBanCaPhe
         }
         private void Btn_Click(object sender, EventArgs e)
         {
-            string Ma_Ban = ((sender as Button).Tag as Ban_DTO).Ma_Ban;
+            string Ma_Ban = ((sender as System.Windows.Forms.Button).Tag as Ban_DTO).Ma_Ban;
             label2.Text = Ma_Ban;
-            listView1.Tag = (sender as Button).Tag;
+            listView1.Tag = (sender as System.Windows.Forms.Button).Tag;
             ShowThongTin_Ban(Ma_Ban);
         }
         //private void dataGridView1_Click(object sender, EventArgs e)
@@ -139,20 +140,32 @@ namespace QuanLyBanCaPhe
 
         private void button1_Click(object sender, EventArgs e)
         {
+            int MaHD;
             Ban_DTO Table = listView1.Tag as Ban_DTO;
-            int MaHD = HoaDon_BUS.KTHoaDon(Table.Ma_Ban);
+            if (Table.Ma_Ban == null)
+            {
+                MessageBox.Show("Vui lòng chọn bàn muốn thanh toán");
+                return;
+            }
+            else
+            {
+               MaHD = HoaDon_BUS.KTHoaDon(Table.Ma_Ban);
                 if (MaHD != -1)
                 {
-                    PrintHD(listView1);
+                    PrintHD();
                     HoaDon_BUS.TinhTien(MaHD);
                     ShowThongTin_Ban(Table.Ma_Ban);
                     LoadBan();
                 }
-            else
-            {
-                MessageBox.Show("Không có danh mục thu tiền!");
-                return;
+                else
+                {
+                    MessageBox.Show("Không có danh mục thu tiền!");
+                    return;
+                }
             }
+            
+            
+            
             
             
         }
@@ -198,52 +211,42 @@ namespace QuanLyBanCaPhe
         {
             //PrintHD(listView1);
         }
-        private void PrintHD(ListView lv)
+        private void PrintHD()
         {
-            string filename = "";
-            SaveFileDialog Save = new SaveFileDialog();
-            Save.Title = "In Hóa Đơn Cửa Hàng Cà Phê";
-            Save.Filter = "Text File (.txt)|*.txt";
-            if (Save.ShowDialog() == DialogResult.OK)
+            using (SaveFileDialog sfd = new SaveFileDialog() { Filter = "Excel Wordnook|*.xls", ValidateNames = true })
             {
-                filename = Save.FileName.ToString();
-                if (filename != "")
+                if (sfd.ShowDialog() == DialogResult.OK)
                 {
-                    using (System.IO.StreamWriter sw = new System.IO.StreamWriter(filename))
-                    {
-                        sw.WriteLine("Phần mềm Quản lí bán Cà Phê");
-                        sw.WriteLine("Địa Chỉ: Cao Đẳng Viễn Đông, lô số 10 Công Viên Phần Mềm Quang Trung");
-                        sw.WriteLine("Chủ quán: Lê Văn Pháp - Nguyễn Thành Đạt");
-                        sw.WriteLine();
-                        sw.WriteLine();
-                        sw.WriteLine();
-                        sw.WriteLine();
-                        sw.WriteLine("                                      HÓA ĐƠN TÍNH TIỀN               ");
-                        sw.WriteLine();
-                        sw.WriteLine();
-                        sw.WriteLine();
-                        sw.WriteLine();
-                        sw.WriteLine("                  Bàn số : {0}", label2.Text);
-                        sw.WriteLine();
-                        sw.WriteLine("                      Tên Món     Số lượng        DVT         Giá");
-                        int tt = 0;
-                        //int tt1 = 0, tt2 = 0;
-                        foreach (ListViewItem item in lv.Items)
-                        {
-                            sw.WriteLine("                    {0}         {1}               {2}         {3} Ngàn đồng", item.SubItems[0].Text, item.SubItems[1].Text, item.SubItems[2].Text, item.SubItems[3].Text);
-                             tt =  tt + Int32.Parse(item.SubItems[3].Text) ;
-                        }
-                        sw.WriteLine();
-                        sw.WriteLine();
+                    Microsoft.Office.Interop.Excel.Application app = new Microsoft.Office.Interop.Excel.Application();
+                    Workbook wb = app.Workbooks.Add(XlSheetType.xlWorksheet);
+                    Worksheet ws = (Worksheet)app.ActiveSheet;
+                    app.Visible = false;
+                    ws.Cells[1, 1] = "Cà phê The Coffee House";
+                    ws.Cells[2, 1] = "Editor: Nguyễn Thành Đạt - Lê Văn Pháp";
+                    ws.Cells[3, 4] = "HÓA ĐƠN TÍNH TIỀN";
+                    ws.Cells[4, 1] = string.Format("Bàn số {0}", label2.Text);
+                    ws.Cells[5, 1] = "Tên SP";
+                    ws.Cells[5, 2] = "Số Lượng";
+                    ws.Cells[5, 3] = "Đơn vị tính";
+                    ws.Cells[5, 4] = "Thành Tiền";
 
-                        sw.WriteLine("            TỔNG TIỀN LÀ: {0}", tt.ToString());
+                    int i = 6, tt = 0;
+                    foreach (ListViewItem item in listView1.Items)
+                    {
+                        ws.Cells[i, 1] = item.SubItems[0].Text;
+                        ws.Cells[i, 2] = item.SubItems[1].Text;
+                        ws.Cells[i, 3] = item.SubItems[2].Text;
+                        ws.Cells[i, 4] = item.SubItems[3].Text;
+                        i++;
+                        tt = tt + Int32.Parse(item.SubItems[3].Text);
                     }
+                    ws.Cells[i + 1, 1] = string.Format("Tổng Tiền là: {0}", tt.ToString());
+                    wb.SaveAs(sfd.FileName, XlFileFormat.xlWorkbookDefault, Type.Missing, Type.Missing, true, false, XlSaveAsAccessMode.xlNoChange, XlSaveConflictResolution.xlLocalSessionChanges, Type.Missing, Type.Missing);
+                    app.Quit();
+                    MessageBox.Show("Thanh Toán Thành Công!");
                 }
             }
-            else
-            {
-                return;
-            }
+
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -266,10 +269,10 @@ namespace QuanLyBanCaPhe
         private void timer1_Tick(object sender, EventArgs e)
         {
             Main_Form_Layer m = new Main_Form_Layer();
-            label3.Location = new Point(label3.Location.X + 5, label3.Location.Y);
+            label3.Location = new System.Drawing.Point(label3.Location.X + 5, label3.Location.Y);
             if(label3.Location.X > 580)
             {
-                label3.Location = new Point(470 - label3.Width, label3.Location.Y);
+                label3.Location = new System.Drawing.Point(470 - label3.Width, label3.Location.Y);
             }
             if (time == 0)
             {
