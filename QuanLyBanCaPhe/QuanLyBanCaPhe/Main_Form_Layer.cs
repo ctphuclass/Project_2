@@ -141,26 +141,34 @@ namespace QuanLyBanCaPhe
         private void button1_Click(object sender, EventArgs e)
         {
             int MaHD;
-            Ban_DTO Table = listView1.Tag as Ban_DTO;
-            if (Table.Ma_Ban == null)
+            Ban_DTO Table = new Ban_DTO();
+            //if (Table.Ma_Ban == "")
+            //{
+            //    MessageBox.Show("Vui lòng chọn bàn muốn thanh toán");
+            //    return;
+            //}
+            //else
             {
-                MessageBox.Show("Vui lòng chọn bàn muốn thanh toán");
-                return;
-            }
-            else
-            {
-               MaHD = HoaDon_BUS.KTHoaDon(Table.Ma_Ban);
-                if (MaHD != -1)
+                Table = listView1.Tag as Ban_DTO;
+                if(Table == null)
                 {
-                    PrintHD();
-                    HoaDon_BUS.TinhTien(MaHD);
-                    ShowThongTin_Ban(Table.Ma_Ban);
-                    LoadBan();
+                    MessageBox.Show("Vui lòng chọn bàn để thanh toán");
                 }
                 else
                 {
-                    MessageBox.Show("Không có danh mục thu tiền!");
-                    return;
+                    MaHD = HoaDon_BUS.KTHoaDon(Table.Ma_Ban);
+                    if (MaHD != -1)
+                    {
+                        PrintHD();
+                        HoaDon_BUS.TinhTien(MaHD);
+                        ShowThongTin_Ban(Table.Ma_Ban);
+                        LoadBan();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Không có danh mục thu tiền!");
+                        return;
+                    }
                 }
             }
             
